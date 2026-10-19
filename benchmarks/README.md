@@ -42,3 +42,18 @@ That builds an isolated instrumented extension and runs the test suite with
 AddressSanitizer and UndefinedBehaviorSanitizer. Interpreter leak detection is
 disabled. Passing this finite suite is not coverage-guided fuzzing or a security
 certification. Ordinary and reference-only tests also run in GitHub CI.
+
+## Adaptive block-selection experiment
+
+```sh
+python benchmarks/adaptive_experiment.py
+python tools/render_adaptive.py
+```
+
+Compares exhaustive per-block selection, two sample-based selectors, fixed-block
+Zstd-3, and whole-file Zstd-3/19, XZ-6 and QCore-2. Uses both 64/256 KiB blocks,
+all 11 verified Canterbury files and three deterministic mixed-data diagnostics.
+Run without other CPU-intensive work. All planning and discarded trials count
+in encoding time; actual lab framing and exact restoration are included.
+This is a trusted-local experiment, not a new public archive format or CLI mode.
+See [full results and limitations](../docs/ADAPTIVE_RESULTS.md).

@@ -1,0 +1,3365 @@
+{
+  "complete": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "zstandard_binding": "0.25.0",
+  "zstd": [
+    1,
+    5,
+    7
+  ],
+  "qcore_backend": "native",
+  "repetitions": 3,
+  "warmups": 1,
+  "sources": {
+    "benchmarks/adaptive_experiment.py": "1cde244220d8f4d283f4822f94539df36d7aa69ef0a685d90170ccd1eb9be6d6",
+    "quarkcompress/core.py": "6ac111dbaf36a122c5a5d709aa510d9c8f03ea8df9dd0ee327d2e80943cb6d17",
+    "quarkcompress/qcore.py": "567ba7f495528839fd29476b98d1d2f31544ebdd7dfcb34079688056ec4ae764",
+    "quarkcompress/split.py": "41c4cf1bda5ffce3b5ca3e71585f468c246c9153c3903f030a81c9e754d8785a",
+    "native/qcore_native.c": "260ea0d055d506fa9acb8b7248ea529cb1c09cda73223206a1bbd9bd66549e43"
+  },
+  "portfolio": [
+    "store",
+    "zstd-3",
+    "zstd-19",
+    "xz-6",
+    "qcore-2"
+  ],
+  "sample_bytes": 4096,
+  "measurement": "Sequential isolated child per input/config. Full selection, discarded trials, SHA-256 and actual lab framing inside encode timer. Decode includes integrity check. Byte comparison outside timers. I/O and startup excluded. Whole baselines retain native stream framing. No held-out corpus or memory cap; RSS includes process/input/warmup. Oracle optimal only for this portfolio, partition and frame.",
+  "files": [
+    {
+      "name": "alice29.txt",
+      "group": "Canterbury development",
+      "input_bytes": 148481,
+      "sha256": "4cbce86540bcef439f901c89de486d295aa3848e8c4cbc911561054479e73960",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 56258,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0009384120003232965,
+          "decode_seconds": 0.00020737599970743759,
+          "encode_range": [
+            0.0007970739998199861,
+            0.0011525270001584431
+          ],
+          "decode_range": [
+            0.0001915420007208013,
+            0.00024659300015628105
+          ],
+          "peak_process_rss_bytes": 16748544,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 48655,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.04330509100054769,
+          "decode_seconds": 0.0002139649996024673,
+          "encode_range": [
+            0.041358194000167714,
+            0.06567437699959555
+          ],
+          "decode_range": [
+            0.00021092099996167235,
+            0.0002158679999411106
+          ],
+          "peak_process_rss_bytes": 20934656,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 47876,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.04461388900017482,
+          "decode_seconds": 0.0016022789995986386,
+          "encode_range": [
+            0.04399398599980486,
+            0.047740693999912764
+          ],
+          "decode_range": [
+            0.0013822350001646555,
+            0.0019208240000807564
+          ],
+          "peak_process_rss_bytes": 34332672,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 53570,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.023232582000673574,
+          "decode_seconds": 0.0009367899992867024,
+          "encode_range": [
+            0.022657807000541652,
+            0.02866313899994566
+          ],
+          "decode_range": [
+            0.0009106809993681964,
+            0.0010892740001509083
+          ],
+          "peak_process_rss_bytes": 16822272,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 52251,
+          "decisions": {
+            "xz-6": 2,
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.07675634299994272,
+          "decode_seconds": 0.0015439239996339893,
+          "encode_range": [
+            0.07471679899936134,
+            0.09143046200006211
+          ],
+          "decode_range": [
+            0.001514118999693892,
+            0.0015824299998712377
+          ],
+          "peak_process_rss_bytes": 35573760,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 58161,
+          "decisions": {
+            "zstd-3": 3
+          },
+          "encode_seconds": 0.0010945109997919644,
+          "decode_seconds": 0.00029001700022490695,
+          "encode_range": [
+            0.0009777889999895706,
+            0.0013652610005010501
+          ],
+          "decode_range": [
+            0.0002852099996744073,
+            0.00032854399978532456
+          ],
+          "peak_process_rss_bytes": 16429056,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 52870,
+          "decisions": {
+            "zstd-19": 3
+          },
+          "encode_seconds": 0.04870548500002769,
+          "decode_seconds": 0.00040042900036496576,
+          "encode_range": [
+            0.046622686999398866,
+            0.06238432800000737
+          ],
+          "decode_range": [
+            0.0003589980005926918,
+            0.0004939480004395591
+          ],
+          "peak_process_rss_bytes": 35049472,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 58161,
+          "decisions": {
+            "zstd-3": 3
+          },
+          "encode_seconds": 0.0010357250002925866,
+          "decode_seconds": 0.00029736800024693366,
+          "encode_range": [
+            0.0008780230000411393,
+            0.0012989119995836518
+          ],
+          "decode_range": [
+            0.00028708300033031264,
+            0.00030097400031081634
+          ],
+          "peak_process_rss_bytes": 16429056,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 47935,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.10944207600005029,
+          "decode_seconds": 0.0016738949998398311,
+          "encode_range": [
+            0.10221670600003563,
+            0.13748640500034526
+          ],
+          "decode_range": [
+            0.0015210399997158675,
+            0.0017244000000573578
+          ],
+          "peak_process_rss_bytes": 39960576,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 56317,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0011093139992226497,
+          "decode_seconds": 0.0003251689995522611,
+          "encode_range": [
+            0.0009220380006809137,
+            0.001223039999786124
+          ],
+          "decode_range": [
+            0.00028354799997032387,
+            0.00034165299985033926
+          ],
+          "peak_process_rss_bytes": 16879616,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 48714,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.05109089799952926,
+          "decode_seconds": 0.0003496139997878345,
+          "encode_range": [
+            0.04503541000030964,
+            0.056276143999639316
+          ],
+          "decode_range": [
+            0.00033999100014625583,
+            0.00037090600017108954
+          ],
+          "peak_process_rss_bytes": 38592512,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 56317,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0012626899997485452,
+          "decode_seconds": 0.0003042979997189832,
+          "encode_range": [
+            0.0009958970003935974,
+            0.0013278750002427842
+          ],
+          "decode_range": [
+            0.0002837980000549578,
+            0.00038956300068093697
+          ],
+          "peak_process_rss_bytes": 16883712,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "asyoulik.txt",
+      "group": "Canterbury development",
+      "input_bytes": 125179,
+      "sha256": "eaa3526fe53859f34ecdf255712f9ecf0b2c903451d4755b2edaa2e2599cb0fc",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 50328,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0007384079999610549,
+          "decode_seconds": 0.00015047099986986723,
+          "encode_range": [
+            0.0006531620001624105,
+            0.0007983949999470497
+          ],
+          "decode_range": [
+            0.00014160899991111364,
+            0.0002300790001754649
+          ],
+          "peak_process_rss_bytes": 16293888,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 45141,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.03608442800032208,
+          "decode_seconds": 0.0002845290000550449,
+          "encode_range": [
+            0.035888209999939136,
+            0.03735637099998712
+          ],
+          "decode_range": [
+            0.00020386999949550955,
+            0.0004271790003258502
+          ],
+          "peak_process_rss_bytes": 18264064,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 44536,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.039162721000138845,
+          "decode_seconds": 0.0014852869999231189,
+          "encode_range": [
+            0.036226506999810226,
+            0.04588580199924763
+          ],
+          "decode_range": [
+            0.0014072830008444726,
+            0.0028351450000627665
+          ],
+          "peak_process_rss_bytes": 42307584,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 49188,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.021160792000046058,
+          "decode_seconds": 0.0008314149999932852,
+          "encode_range": [
+            0.018075287999636203,
+            0.02372544799982279
+          ],
+          "decode_range": [
+            0.0008201079999707872,
+            0.0011343109999870649
+          ],
+          "peak_process_rss_bytes": 16613376,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 46968,
+          "decisions": {
+            "xz-6": 2
+          },
+          "encode_seconds": 0.07226497899955575,
+          "decode_seconds": 0.0016319140004270594,
+          "encode_range": [
+            0.07060073799948441,
+            0.07937862499966286
+          ],
+          "decode_range": [
+            0.0015626809999957914,
+            0.0016444410002804943
+          ],
+          "peak_process_rss_bytes": 35315712,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 51899,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.0010892239997701836,
+          "decode_seconds": 0.0002501379995010211,
+          "encode_range": [
+            0.0010583789999145665,
+            0.0012211580005896394
+          ],
+          "decode_range": [
+            0.00024230700000771321,
+            0.0002994309998030076
+          ],
+          "peak_process_rss_bytes": 16429056,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 47601,
+          "decisions": {
+            "zstd-19": 2
+          },
+          "encode_seconds": 0.036495283000476775,
+          "decode_seconds": 0.0003298660003565601,
+          "encode_range": [
+            0.036200369000653154,
+            0.03661009200004628
+          ],
+          "decode_range": [
+            0.00032939499942585826,
+            0.0004665469996325555
+          ],
+          "peak_process_rss_bytes": 34795520,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 51899,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.0008440530000370927,
+          "decode_seconds": 0.0003463000002739136,
+          "encode_range": [
+            0.0008434720002696849,
+            0.0010418040001241025
+          ],
+          "decode_range": [
+            0.0002519310000934638,
+            0.00042016900079033803
+          ],
+          "peak_process_rss_bytes": 16429056,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 44595,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.07774858399989171,
+          "decode_seconds": 0.0013942730001872405,
+          "encode_range": [
+            0.0764491399995677,
+            0.07998011000017868
+          ],
+          "decode_range": [
+            0.0013844979994246387,
+            0.0014095050000832998
+          ],
+          "peak_process_rss_bytes": 36585472,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 50387,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.000985972000307811,
+          "decode_seconds": 0.00032589000056759687,
+          "encode_range": [
+            0.0009451519999856828,
+            0.0011645849999695201
+          ],
+          "decode_range": [
+            0.00022664399966743076,
+            0.0003273819993410143
+          ],
+          "peak_process_rss_bytes": 16429056,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 45200,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.046232173000134935,
+          "decode_seconds": 0.0003948519997720723,
+          "encode_range": [
+            0.04143412600024021,
+            0.04804573699948378
+          ],
+          "decode_range": [
+            0.00039231800019479124,
+            0.00043520100007299334
+          ],
+          "peak_process_rss_bytes": 35840000,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 50387,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0008438019995082868,
+          "decode_seconds": 0.00022545199954038253,
+          "encode_range": [
+            0.0008265380001830636,
+            0.0008690499998920131
+          ],
+          "decode_range": [
+            0.00022178699964570114,
+            0.00032788299995445414
+          ],
+          "peak_process_rss_bytes": 16424960,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "cp.html",
+      "group": "Canterbury development",
+      "input_bytes": 24603,
+      "sha256": "e0cd21cef5b6c4069461e949be100080c3ce887de6f1dd8626c480528efaaf61",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 8468,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 9.332700028608087e-05,
+          "decode_seconds": 3.5211999602324795e-05,
+          "encode_range": [
+            8.532600077160168e-05,
+            0.00018297899987373967
+          ],
+          "decode_range": [
+            3.461100004642503e-05,
+            5.5030999646987766e-05
+          ],
+          "peak_process_rss_bytes": 15769600,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 7717,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0060439999997470295,
+          "decode_seconds": 5.4489999456563964e-05,
+          "encode_range": [
+            0.0055815089999669,
+            0.0067906399999628775
+          ],
+          "decode_range": [
+            4.976299987902166e-05,
+            5.8505999732005876e-05
+          ],
+          "peak_process_rss_bytes": 16031744,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 7644,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.004741703000036068,
+          "decode_seconds": 0.0003559850001693121,
+          "encode_range": [
+            0.004310557999815501,
+            0.010413144000267494
+          ],
+          "decode_range": [
+            0.00026785499994730344,
+            0.0005413980006778729
+          ],
+          "peak_process_rss_bytes": 32509952,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 8502,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.0014357350000864244,
+          "decode_seconds": 0.0002220169999418431,
+          "encode_range": [
+            0.0014239369993447326,
+            0.0017779390000214335
+          ],
+          "decode_range": [
+            0.0001901400000861031,
+            0.00024749500062171137
+          ],
+          "peak_process_rss_bytes": 15376384,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 7703,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.01817313199990167,
+          "decode_seconds": 0.0003858279997075442,
+          "encode_range": [
+            0.013181041000279947,
+            0.019011756000509195
+          ],
+          "decode_range": [
+            0.0003101369993601111,
+            0.0005347169999367907
+          ],
+          "peak_process_rss_bytes": 33370112,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 8527,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00015865299974393565,
+          "decode_seconds": 6.131999998615356e-05,
+          "encode_range": [
+            0.00014134799948806176,
+            0.00024733499958529137
+          ],
+          "decode_range": [
+            5.2567999773600604e-05,
+            7.108400041033747e-05
+          ],
+          "peak_process_rss_bytes": 15769600,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 7776,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.008861198999511544,
+          "decode_seconds": 8.814000011625467e-05,
+          "encode_range": [
+            0.008768280999902345,
+            0.013272614000015892
+          ],
+          "decode_range": [
+            8.798999988357536e-05,
+            0.0001705309996395954
+          ],
+          "peak_process_rss_bytes": 33275904,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 8527,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00012628599961317377,
+          "decode_seconds": 5.993800004944205e-05,
+          "encode_range": [
+            0.00011184499999217223,
+            0.0005152690000613802
+          ],
+          "decode_range": [
+            5.28880000274512e-05,
+            6.446399947890313e-05
+          ],
+          "peak_process_rss_bytes": 15773696,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 7703,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.014283972999692196,
+          "decode_seconds": 0.0003218339998056763,
+          "encode_range": [
+            0.013762476000010793,
+            0.020711258000119415
+          ],
+          "decode_range": [
+            0.00029267100035212934,
+            0.00039163700057542883
+          ],
+          "peak_process_rss_bytes": 33366016,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 8527,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00016576399957557442,
+          "decode_seconds": 5.566199979512021e-05,
+          "encode_range": [
+            0.0001621490000616177,
+            0.00025360299969179323
+          ],
+          "decode_range": [
+            5.271800000627991e-05,
+            8.704800075065577e-05
+          ],
+          "peak_process_rss_bytes": 15769600,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 7776,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.008569248000640073,
+          "decode_seconds": 9.218499963026261e-05,
+          "encode_range": [
+            0.008275637000224378,
+            0.013940036999883887
+          ],
+          "decode_range": [
+            7.861499943828676e-05,
+            0.00011309699948469643
+          ],
+          "peak_process_rss_bytes": 33218560,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 8527,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00019394599985389505,
+          "decode_seconds": 6.123000002844492e-05,
+          "encode_range": [
+            0.00011472899950604187,
+            0.00023991300076886546
+          ],
+          "decode_range": [
+            5.382900053518824e-05,
+            6.332399971142877e-05
+          ],
+          "peak_process_rss_bytes": 15765504,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "fields.c",
+      "group": "Canterbury development",
+      "input_bytes": 11150,
+      "sha256": "85d73e354cc50cec76cb5a50537cf8dc035f8cbb8480f9e1cbe2f7d6c23393c7",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 3384,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 5.6924000091385096e-05,
+          "decode_seconds": 2.343500000279164e-05,
+          "encode_range": [
+            4.8781999794300646e-05,
+            9.068399958778173e-05
+          ],
+          "decode_range": [
+            2.1492000087164342e-05,
+            2.552800015109824e-05
+          ],
+          "peak_process_rss_bytes": 15597568,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 3019,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.002955732999907923,
+          "decode_seconds": 3.069500053243246e-05,
+          "encode_range": [
+            0.002520842000194534,
+            0.004731717000140634
+          ],
+          "decode_range": [
+            2.9423999876598828e-05,
+            4.2081999708898365e-05
+          ],
+          "peak_process_rss_bytes": 15765504,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 3028,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.0024475540003550122,
+          "decode_seconds": 0.00011268599973845994,
+          "encode_range": [
+            0.002417288999822631,
+            0.008481179000227712
+          ],
+          "decode_range": [
+            0.00011183400056324899,
+            0.000126705999718979
+          ],
+          "peak_process_rss_bytes": 32497664,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 3505,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.0010438170002089464,
+          "decode_seconds": 0.0001204270001835539,
+          "encode_range": [
+            0.0009320220005974988,
+            0.0012275369999770191
+          ],
+          "decode_range": [
+            0.0001131469998654211,
+            0.00013174400010029785
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 3078,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0077868260004834156,
+          "decode_seconds": 6.651800049439771e-05,
+          "encode_range": [
+            0.0073169939996660105,
+            0.014674809000098321
+          ],
+          "decode_range": [
+            6.048900013411185e-05,
+            7.226700017781695e-05
+          ],
+          "peak_process_rss_bytes": 32956416,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 3443,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00011858500056405319,
+          "decode_seconds": 3.5131999538862146e-05,
+          "encode_range": [
+            9.429900001123315e-05,
+            0.00016632400001981296
+          ],
+          "decode_range": [
+            3.237799955968512e-05,
+            3.91570001738728e-05
+          ],
+          "peak_process_rss_bytes": 15597568,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 3078,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0059777220003525144,
+          "decode_seconds": 5.8476000049267896e-05,
+          "encode_range": [
+            0.005393360999732977,
+            0.012503259999903094
+          ],
+          "decode_range": [
+            5.3468999794858973e-05,
+            7.644200013601221e-05
+          ],
+          "peak_process_rss_bytes": 32952320,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 3443,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 6.942199979675934e-05,
+          "decode_seconds": 3.323900000395952e-05,
+          "encode_range": [
+            6.786999983887654e-05,
+            0.00011830399944301462
+          ],
+          "decode_range": [
+            3.188699974998599e-05,
+            3.9647999983571935e-05
+          ],
+          "peak_process_rss_bytes": 15597568,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 3078,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.00603655000031722,
+          "decode_seconds": 6.670900074823294e-05,
+          "encode_range": [
+            0.006018111999765097,
+            0.010878869000407576
+          ],
+          "decode_range": [
+            5.781599975307472e-05,
+            7.502000062231673e-05
+          ],
+          "peak_process_rss_bytes": 32960512,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 3443,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00010324199956812663,
+          "decode_seconds": 3.601299977162853e-05,
+          "encode_range": [
+            8.96420006029075e-05,
+            0.00017477700021117926
+          ],
+          "decode_range": [
+            3.423099951760378e-05,
+            4.0859999899112154e-05
+          ],
+          "peak_process_rss_bytes": 15597568,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 3078,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.006524879000608053,
+          "decode_seconds": 7.520100007241126e-05,
+          "encode_range": [
+            0.006167992999507987,
+            0.013253284999336756
+          ],
+          "decode_range": [
+            5.93979993936955e-05,
+            0.00018061599985230714
+          ],
+          "peak_process_rss_bytes": 32956416,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 3443,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 7.019300028332509e-05,
+          "decode_seconds": 3.438100065977778e-05,
+          "encode_range": [
+            6.055999983800575e-05,
+            0.00011419900056353072
+          ],
+          "decode_range": [
+            3.17960002576001e-05,
+            4.044999968755292e-05
+          ],
+          "peak_process_rss_bytes": 15597568,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "grammar.lsp",
+      "group": "Canterbury development",
+      "input_bytes": 3721,
+      "sha256": "1b0805dfc0ae706b35aac2bb4e15f02485efd24dda5dbd29de7b2f84d1a88c15",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 1295,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 2.7801000214822125e-05,
+          "decode_seconds": 1.5593000171065796e-05,
+          "encode_range": [
+            2.4316000235558022e-05,
+            3.4590999348438345e-05
+          ],
+          "decode_range": [
+            1.453099957871018e-05,
+            1.8366999938734807e-05
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 1215,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0006563460001416388,
+          "decode_seconds": 2.069000038318336e-05,
+          "encode_range": [
+            0.0006124109995653271,
+            0.0007242869996844092
+          ],
+          "decode_range": [
+            2.0219000361976214e-05,
+            2.1752000066044275e-05
+          ],
+          "peak_process_rss_bytes": 15597568,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 1292,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.00141450299997814,
+          "decode_seconds": 6.525600019813282e-05,
+          "encode_range": [
+            0.0012910610003018519,
+            0.007118171999536571
+          ],
+          "decode_range": [
+            6.269200002861908e-05,
+            0.00011060299948439933
+          ],
+          "peak_process_rss_bytes": 32374784,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 1536,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.0005058549995737849,
+          "decode_seconds": 7.807500060152961e-05,
+          "encode_range": [
+            0.000490692000312265,
+            0.0005290389999572653
+          ],
+          "decode_range": [
+            7.672300034755608e-05,
+            0.00011248600003455067
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 1274,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0027902889996767044,
+          "decode_seconds": 4.291299956094008e-05,
+          "encode_range": [
+            0.0024972179999167565,
+            0.007330314000682847
+          ],
+          "decode_range": [
+            3.66039994332823e-05,
+            5.49810001757578e-05
+          ],
+          "peak_process_rss_bytes": 32821248,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 1354,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 4.041899956064299e-05,
+          "decode_seconds": 2.222199964307947e-05,
+          "encode_range": [
+            3.409100008866517e-05,
+            5.034399964642944e-05
+          ],
+          "decode_range": [
+            2.0079000023542903e-05,
+            2.6638999770511873e-05
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 1274,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.002904998000303749,
+          "decode_seconds": 5.243699979473604e-05,
+          "encode_range": [
+            0.0026251660001435084,
+            0.007252289000462042
+          ],
+          "decode_range": [
+            4.528699992079055e-05,
+            5.3077999837114476e-05
+          ],
+          "peak_process_rss_bytes": 32821248,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 1354,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 4.434500078787096e-05,
+          "decode_seconds": 2.739000046858564e-05,
+          "encode_range": [
+            3.755599936994258e-05,
+            0.00015906400039966684
+          ],
+          "decode_range": [
+            2.5588000426068902e-05,
+            2.9834000088158064e-05
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 1274,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0025083539994739112,
+          "decode_seconds": 3.870700038532959e-05,
+          "encode_range": [
+            0.002452360999996017,
+            0.0071368290000464185
+          ],
+          "decode_range": [
+            3.734500023711007e-05,
+            5.4039999668020755e-05
+          ],
+          "peak_process_rss_bytes": 32825344,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 1354,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 4.6068000301602297e-05,
+          "decode_seconds": 2.6129000616492704e-05,
+          "encode_range": [
+            3.8547000258404296e-05,
+            0.0002913389998866478
+          ],
+          "decode_range": [
+            2.233299983345205e-05,
+            2.948400015156949e-05
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 1274,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0029517869998016977,
+          "decode_seconds": 4.238199926476227e-05,
+          "encode_range": [
+            0.0028422449995559873,
+            0.008025957999961975
+          ],
+          "decode_range": [
+            4.147100025875261e-05,
+            5.39699994988041e-05
+          ],
+          "peak_process_rss_bytes": 32821248,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 1354,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 3.764600023714593e-05,
+          "decode_seconds": 2.290399970661383e-05,
+          "encode_range": [
+            3.24180000461638e-05,
+            4.5636999857379124e-05
+          ],
+          "decode_range": [
+            2.0839999706367962e-05,
+            2.6649000574252568e-05
+          ],
+          "peak_process_rss_bytes": 15466496,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "kennedy.xls",
+      "group": "Canterbury development",
+      "input_bytes": 1029744,
+      "sha256": "9af47239ca29dfe20e633f80bbbb9a4cc9783d0803d7b2b5626f42e4c3790420",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 111831,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0028037590000167256,
+          "decode_seconds": 0.0008758390004004468,
+          "encode_range": [
+            0.0027082879996669362,
+            0.0028694850007013883
+          ],
+          "decode_range": [
+            0.0008485899998049717,
+            0.0008934249999583699
+          ],
+          "peak_process_rss_bytes": 19664896,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 64829,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.3535204899999371,
+          "decode_seconds": 0.0015601880004396662,
+          "encode_range": [
+            0.3118371950004075,
+            0.35984689999986585
+          ],
+          "decode_range": [
+            0.0014271720001488575,
+            0.001987046999602171
+          ],
+          "peak_process_rss_bytes": 37130240,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 49116,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.2831040060000305,
+          "decode_seconds": 0.005334294000022055,
+          "encode_range": [
+            0.2765934990002279,
+            0.288473251999676
+          ],
+          "decode_range": [
+            0.0049215169992749,
+            0.005468092000228353
+          ],
+          "peak_process_rss_bytes": 47575040,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 150357,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.08319463600037125,
+          "decode_seconds": 0.006045972000720212,
+          "encode_range": [
+            0.08125536999978067,
+            0.08958888100005424
+          ],
+          "decode_range": [
+            0.005236760999650869,
+            0.006293708000157494
+          ],
+          "peak_process_rss_bytes": 22212608,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 61502,
+          "decisions": {
+            "xz-6": 16
+          },
+          "encode_seconds": 0.44727583100029733,
+          "decode_seconds": 0.006534130999170884,
+          "encode_range": [
+            0.436217958999805,
+            0.47782075899976917
+          ],
+          "decode_range": [
+            0.006498959000055038,
+            0.006846340999800304
+          ],
+          "peak_process_rss_bytes": 40873984,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 111760,
+          "decisions": {
+            "zstd-3": 16
+          },
+          "encode_seconds": 0.004007370999715931,
+          "decode_seconds": 0.002240388999780407,
+          "encode_range": [
+            0.003839744000288192,
+            0.00439837600060855
+          ],
+          "decode_range": [
+            0.0018726479993347311,
+            0.0022570130004169187
+          ],
+          "peak_process_rss_bytes": 20307968,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 87040,
+          "decisions": {
+            "xz-6": 5,
+            "zstd-19": 11
+          },
+          "encode_seconds": 0.22114653700009512,
+          "decode_seconds": 0.0033585439996386413,
+          "encode_range": [
+            0.22051129700048477,
+            0.2686427910002749
+          ],
+          "decode_range": [
+            0.003188753999893379,
+            0.003705045000060636
+          ],
+          "peak_process_rss_bytes": 43323392,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 111760,
+          "decisions": {
+            "zstd-3": 16
+          },
+          "encode_seconds": 0.0037503719995584106,
+          "decode_seconds": 0.0020422069992491743,
+          "encode_range": [
+            0.0035182800002075965,
+            0.0051347090002309415
+          ],
+          "decode_range": [
+            0.00196768699970562,
+            0.0024735719998716377
+          ],
+          "peak_process_rss_bytes": 20242432,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 55214,
+          "decisions": {
+            "xz-6": 4
+          },
+          "encode_seconds": 0.6265410750002047,
+          "decode_seconds": 0.0064205729995592264,
+          "encode_range": [
+            0.6180279669997617,
+            0.6279168150003898
+          ],
+          "decode_range": [
+            0.005986383000163187,
+            0.006631001999267028
+          ],
+          "peak_process_rss_bytes": 49774592,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 111543,
+          "decisions": {
+            "zstd-3": 4
+          },
+          "encode_seconds": 0.003977956000198901,
+          "decode_seconds": 0.0018102849999195314,
+          "encode_range": [
+            0.0037823980001121527,
+            0.004898521000541223
+          ],
+          "decode_range": [
+            0.0016597540006841882,
+            0.003075607999562635
+          ],
+          "peak_process_rss_bytes": 21291008,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 64043,
+          "decisions": {
+            "xz-6": 3,
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.27172542399966915,
+          "decode_seconds": 0.0054197889994611614,
+          "encode_range": [
+            0.2544424910001908,
+            0.28720413200062467
+          ],
+          "decode_range": [
+            0.005079307000414701,
+            0.005557241000133217
+          ],
+          "peak_process_rss_bytes": 50798592,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 111543,
+          "decisions": {
+            "zstd-3": 4
+          },
+          "encode_seconds": 0.003330272999846784,
+          "decode_seconds": 0.0017412440001862706,
+          "encode_range": [
+            0.0031825960004425724,
+            0.006811387999732688
+          ],
+          "decode_range": [
+            0.0016278769999189535,
+            0.002032633000453643
+          ],
+          "peak_process_rss_bytes": 21299200,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "lcet10.txt",
+      "group": "Canterbury development",
+      "input_bytes": 419235,
+      "sha256": "938e69e61b3411d8a9e2e630f4265000d810f3dbf66bac58cac19493753526ec",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 139166,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.002212126999438624,
+          "decode_seconds": 0.000551441999959934,
+          "encode_range": [
+            0.002184455999667989,
+            0.002658805000464781
+          ],
+          "decode_range": [
+            0.000508518000060576,
+            0.000635245000012219
+          ],
+          "peak_process_rss_bytes": 18563072,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 120039,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.10583107500042388,
+          "decode_seconds": 0.0005630890000247746,
+          "encode_range": [
+            0.10270087699973374,
+            0.1126160029998573
+          ],
+          "decode_range": [
+            0.0004868670002906583,
+            0.0009074359995793202
+          ],
+          "peak_process_rss_bytes": 26816512,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 118052,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.12327864800045063,
+          "decode_seconds": 0.0033238040005016956,
+          "encode_range": [
+            0.11865744300030201,
+            0.13397511899984238
+          ],
+          "decode_range": [
+            0.0032172069995795027,
+            0.0034076980000463664
+          ],
+          "peak_process_rss_bytes": 38498304,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 142874,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.054827463000037824,
+          "decode_seconds": 0.002365803000429878,
+          "encode_range": [
+            0.05408543100020324,
+            0.05519828000069538
+          ],
+          "decode_range": [
+            0.002249483000014152,
+            0.002476507000210404
+          ],
+          "peak_process_rss_bytes": 19574784,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 140281,
+          "decisions": {
+            "xz-6": 7
+          },
+          "encode_seconds": 0.24327787699985493,
+          "decode_seconds": 0.005075965000287397,
+          "encode_range": [
+            0.2108659160003299,
+            0.270529735999844
+          ],
+          "decode_range": [
+            0.004628174999197654,
+            0.005975409000711807
+          ],
+          "peak_process_rss_bytes": 38334464,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 155451,
+          "decisions": {
+            "zstd-3": 7
+          },
+          "encode_seconds": 0.0032852779995664605,
+          "decode_seconds": 0.0008351799997399212,
+          "encode_range": [
+            0.0027391339999667252,
+            0.0033645650000835303
+          ],
+          "decode_range": [
+            0.0007866980004109791,
+            0.0008829200005493476
+          ],
+          "peak_process_rss_bytes": 17633280,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 142202,
+          "decisions": {
+            "zstd-19": 7
+          },
+          "encode_seconds": 0.11753217600016796,
+          "decode_seconds": 0.0009386830006405944,
+          "encode_range": [
+            0.11372830500022246,
+            0.12591182600044704
+          ],
+          "decode_range": [
+            0.000896730999556894,
+            0.0009722519998831558
+          ],
+          "peak_process_rss_bytes": 37974016,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 155451,
+          "decisions": {
+            "zstd-3": 7
+          },
+          "encode_seconds": 0.0024161379997167387,
+          "decode_seconds": 0.0008304630000566249,
+          "encode_range": [
+            0.002331994000087434,
+            0.0024743940002736053
+          ],
+          "decode_range": [
+            0.0007793579998178757,
+            0.0008958999997048522
+          ],
+          "peak_process_rss_bytes": 17633280,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 125492,
+          "decisions": {
+            "xz-6": 2
+          },
+          "encode_seconds": 0.29934951400082355,
+          "decode_seconds": 0.004945441999552713,
+          "encode_range": [
+            0.29058095700020203,
+            0.3447178280002845
+          ],
+          "decode_range": [
+            0.004267264000191062,
+            0.007067395999911241
+          ],
+          "peak_process_rss_bytes": 43257856,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 147606,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.003948223999941547,
+          "decode_seconds": 0.0008770519998506643,
+          "encode_range": [
+            0.003020699000444438,
+            0.0041754489993763855
+          ],
+          "decode_range": [
+            0.0008244440005000797,
+            0.001136003000283381
+          ],
+          "peak_process_rss_bytes": 18649088,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 127608,
+          "decisions": {
+            "zstd-19": 2
+          },
+          "encode_seconds": 0.1359404929999073,
+          "decode_seconds": 0.0011231729995415662,
+          "encode_range": [
+            0.1332051359995603,
+            0.1590503429997625
+          ],
+          "decode_range": [
+            0.0009427679997315863,
+            0.0011859159994855872
+          ],
+          "peak_process_rss_bytes": 41107456,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 147606,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.002755436999905214,
+          "decode_seconds": 0.0008358009999938076,
+          "encode_range": [
+            0.002731892999690899,
+            0.0029469400005837088
+          ],
+          "decode_range": [
+            0.0008190660000764183,
+            0.0010380889998486964
+          ],
+          "peak_process_rss_bytes": 18644992,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "plrabn12.txt",
+      "group": "Canterbury development",
+      "input_bytes": 471162,
+      "sha256": "7f498b78f161d81bf4e121e80fa052b491babb64de44b6364304a117db5fbbb3",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 190218,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.003478491999885591,
+          "decode_seconds": 0.0006475230002251919,
+          "encode_range": [
+            0.0034073570004693465,
+            0.003595634000703285
+          ],
+          "decode_range": [
+            0.0005848410000908189,
+            0.0006480039992311504
+          ],
+          "peak_process_rss_bytes": 18923520,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 166944,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.12070376700012275,
+          "decode_seconds": 0.0008453740001641563,
+          "encode_range": [
+            0.1122005060005904,
+            0.12656520800010185
+          ],
+          "decode_range": [
+            0.0006092570001783315,
+            0.0009692270004961756
+          ],
+          "peak_process_rss_bytes": 27287552,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 164816,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.14835221900011675,
+          "decode_seconds": 0.005519507000826707,
+          "encode_range": [
+            0.14395228099965607,
+            0.15798662599991076
+          ],
+          "decode_range": [
+            0.005159786999684002,
+            0.005570051999711723
+          ],
+          "peak_process_rss_bytes": 42016768,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 193577,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.07271605400001135,
+          "decode_seconds": 0.0032109280000440776,
+          "encode_range": [
+            0.06826250799986155,
+            0.0786888499997076
+          ],
+          "decode_range": [
+            0.0028552240000863094,
+            0.003670676000183448
+          ],
+          "peak_process_rss_bytes": 19742720,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 188796,
+          "decisions": {
+            "xz-6": 7,
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.23319004900076834,
+          "decode_seconds": 0.006938677000107418,
+          "encode_range": [
+            0.2243526499996733,
+            0.256764502999431
+          ],
+          "decode_range": [
+            0.0063256940002247575,
+            0.007478872999854502
+          ],
+          "peak_process_rss_bytes": 39366656,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 207782,
+          "decisions": {
+            "zstd-3": 8
+          },
+          "encode_seconds": 0.0037275989998306613,
+          "decode_seconds": 0.0012293099998714752,
+          "encode_range": [
+            0.0035134839999955148,
+            0.003984446999311331
+          ],
+          "decode_range": [
+            0.001058718999956909,
+            0.0012339469994913088
+          ],
+          "peak_process_rss_bytes": 17936384,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 191246,
+          "decisions": {
+            "zstd-19": 8
+          },
+          "encode_seconds": 0.1544343249997837,
+          "decode_seconds": 0.0017066430000340915,
+          "encode_range": [
+            0.14330668999991758,
+            0.15708301499944355
+          ],
+          "decode_range": [
+            0.0012746070005960064,
+            0.0017824149999796646
+          ],
+          "peak_process_rss_bytes": 38797312,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 207782,
+          "decisions": {
+            "zstd-3": 8
+          },
+          "encode_seconds": 0.003567573000509583,
+          "decode_seconds": 0.0011642439994830056,
+          "encode_range": [
+            0.0035106099994663964,
+            0.003627310999945621
+          ],
+          "decode_range": [
+            0.0010181689995079068,
+            0.0015420310000990867
+          ],
+          "peak_process_rss_bytes": 17940480,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 172056,
+          "decisions": {
+            "xz-6": 2
+          },
+          "encode_seconds": 0.3629760690000694,
+          "decode_seconds": 0.005654515999594878,
+          "encode_range": [
+            0.3538673409993862,
+            0.3768864220000978
+          ],
+          "decode_range": [
+            0.005425799000477127,
+            0.006902233999426244
+          ],
+          "peak_process_rss_bytes": 45895680,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 202275,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.004881808999925852,
+          "decode_seconds": 0.0013547649996326072,
+          "encode_range": [
+            0.004109440999854996,
+            0.005207637999774306
+          ],
+          "decode_range": [
+            0.0012229800004206481,
+            0.0013590910002676537
+          ],
+          "peak_process_rss_bytes": 19234816,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 174234,
+          "decisions": {
+            "zstd-19": 2
+          },
+          "encode_seconds": 0.15223589800007176,
+          "decode_seconds": 0.001191454000036174,
+          "encode_range": [
+            0.1333006459999524,
+            0.1643865200003347
+          ],
+          "decode_range": [
+            0.0010329810002076556,
+            0.0012013290006507304
+          ],
+          "peak_process_rss_bytes": 41811968,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 202275,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.0041959100008170935,
+          "decode_seconds": 0.0012018100005661836,
+          "encode_range": [
+            0.003942856000321626,
+            0.00468135400024039
+          ],
+          "decode_range": [
+            0.0010997090003002086,
+            0.001487751000240678
+          ],
+          "peak_process_rss_bytes": 19238912,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "ptt5",
+      "group": "Canterbury development",
+      "input_bytes": 513216,
+      "sha256": "0ec3a75089bb52342813496b17e51377bc9eba3cb519a444d67025354841d650",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 54424,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0014027249999344349,
+          "decode_seconds": 0.0004031129992654314,
+          "encode_range": [
+            0.0007655270001123426,
+            0.0019134679996568593
+          ],
+          "decode_range": [
+            0.0002715500004342175,
+            0.00041975800013460685
+          ],
+          "peak_process_rss_bytes": 19300352,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 43644,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.20554820400047902,
+          "decode_seconds": 0.00042473599933146033,
+          "encode_range": [
+            0.19158679399970424,
+            0.2127046129999144
+          ],
+          "decode_range": [
+            0.0002992210002048523,
+            0.00045620200035045855
+          ],
+          "peak_process_rss_bytes": 27680768,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 41992,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.11052829000072961,
+          "decode_seconds": 0.002118469000379264,
+          "encode_range": [
+            0.08821724099925632,
+            0.12363567800002784
+          ],
+          "decode_range": [
+            0.001989199000490771,
+            0.0024404240002695587
+          ],
+          "peak_process_rss_bytes": 40095744,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 56402,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.054076830999292724,
+          "decode_seconds": 0.0016494090004925965,
+          "encode_range": [
+            0.040115275000061956,
+            0.05772675899970636
+          ],
+          "decode_range": [
+            0.001570012000229326,
+            0.001714604999506264
+          ],
+          "peak_process_rss_bytes": 19243008,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 44059,
+          "decisions": {
+            "zstd-19": 6,
+            "xz-6": 2
+          },
+          "encode_seconds": 0.35098017400014214,
+          "decode_seconds": 0.0014977549999457551,
+          "encode_range": [
+            0.32874859100047615,
+            0.36703490800027794
+          ],
+          "decode_range": [
+            0.001473469999837107,
+            0.0016582620000917814
+          ],
+          "peak_process_rss_bytes": 39092224,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 52563,
+          "decisions": {
+            "zstd-3": 8
+          },
+          "encode_seconds": 0.0017658110000411398,
+          "decode_seconds": 0.0007953410004120087,
+          "encode_range": [
+            0.001322446999438398,
+            0.002045443000497471
+          ],
+          "decode_range": [
+            0.0007882609997977852,
+            0.0008999760002552648
+          ],
+          "peak_process_rss_bytes": 17948672,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 44609,
+          "decisions": {
+            "zstd-19": 7,
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.28632040100001177,
+          "decode_seconds": 0.0009254029992007418,
+          "encode_range": [
+            0.2794416300002922,
+            0.30907772299997305
+          ],
+          "decode_range": [
+            0.000850772999910987,
+            0.0013393829995038686
+          ],
+          "peak_process_rss_bytes": 38391808,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 52563,
+          "decisions": {
+            "zstd-3": 8
+          },
+          "encode_seconds": 0.0013715200002479833,
+          "decode_seconds": 0.0008173140004146262,
+          "encode_range": [
+            0.0012848819997088867,
+            0.0016051830007199896
+          ],
+          "decode_range": [
+            0.0007346419997702469,
+            0.0008571719999963534
+          ],
+          "peak_process_rss_bytes": 17940480,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 42582,
+          "decisions": {
+            "xz-6": 1,
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.344672090000131,
+          "decode_seconds": 0.001831988000049023,
+          "encode_range": [
+            0.33108304899997165,
+            0.35115184300047986
+          ],
+          "decode_range": [
+            0.0016812659996503498,
+            0.0018328090000068187
+          ],
+          "peak_process_rss_bytes": 45400064,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 55677,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.0016690880001988262,
+          "decode_seconds": 0.000667813000291062,
+          "encode_range": [
+            0.001482964000388165,
+            0.0016695879994585994
+          ],
+          "decode_range": [
+            0.0006626160002269899,
+            0.0009244419998140074
+          ],
+          "peak_process_rss_bytes": 19087360,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 43679,
+          "decisions": {
+            "zstd-19": 2
+          },
+          "encode_seconds": 0.23727258300004905,
+          "decode_seconds": 0.0007902229999672272,
+          "encode_range": [
+            0.22651780399974086,
+            0.2484857990002638
+          ],
+          "decode_range": [
+            0.0007823320001989487,
+            0.0008399570006076829
+          ],
+          "peak_process_rss_bytes": 42323968,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 55677,
+          "decisions": {
+            "zstd-3": 2
+          },
+          "encode_seconds": 0.0012838399998145178,
+          "decode_seconds": 0.0006433569997170707,
+          "encode_range": [
+            0.0011797779998232727,
+            0.0014273409997258568
+          ],
+          "decode_range": [
+            0.0006337140002870001,
+            0.0009579510006005876
+          ],
+          "peak_process_rss_bytes": 19202048,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "sum",
+      "group": "Canterbury development",
+      "input_bytes": 38240,
+      "sha256": "ee5733cd76ecc2f9d8ff156adc3c02a7a851051dcf43a2d56ff4ee4ff606bdb3",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 13379,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00011932600045838626,
+          "decode_seconds": 4.6518999624822754e-05,
+          "encode_range": [
+            0.00011364700003468897,
+            0.0001308229993810528
+          ],
+          "decode_range": [
+            4.3914999878325034e-05,
+            5.3499000387091655e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 11111,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.007406736000120873,
+          "decode_seconds": 7.880600060161669e-05,
+          "encode_range": [
+            0.007357704000241938,
+            0.007465564000085578
+          ],
+          "decode_range": [
+            7.701400045334594e-05,
+            9.171500005322741e-05
+          ],
+          "peak_process_rss_bytes": 17551360,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 9452,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.0079084459994192,
+          "decode_seconds": 0.0005269359999147127,
+          "encode_range": [
+            0.007183067000369192,
+            0.014919969999937166
+          ],
+          "decode_range": [
+            0.0003988580001532682,
+            0.0007002210004429799
+          ],
+          "peak_process_rss_bytes": 33570816,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 14270,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.002049688000624883,
+          "decode_seconds": 0.00031327099986810936,
+          "encode_range": [
+            0.0020187230002193246,
+            0.0020671330003096955
+          ],
+          "decode_range": [
+            0.00031129899980442133,
+            0.00040120099947671406
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 9511,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.02051348999975744,
+          "decode_seconds": 0.0005365899996832013,
+          "encode_range": [
+            0.019618111999989196,
+            0.026881839999987278
+          ],
+          "decode_range": [
+            0.00044343300032778643,
+            0.0005564589991990943
+          ],
+          "peak_process_rss_bytes": 34258944,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 13438,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00020438100000319537,
+          "decode_seconds": 7.609200019942364e-05,
+          "encode_range": [
+            0.00017779200061340816,
+            0.0002542350002840976
+          ],
+          "decode_range": [
+            7.37489999664831e-05,
+            8.337300005223369e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 9511,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.011695644000610628,
+          "decode_seconds": 0.0006297070003711269,
+          "encode_range": [
+            0.01057924999986426,
+            0.01198383799965086
+          ],
+          "decode_range": [
+            0.0004450959995665471,
+            0.0007713860004514572
+          ],
+          "peak_process_rss_bytes": 33804288,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 13438,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00016480299927934539,
+          "decode_seconds": 8.339299984072568e-05,
+          "encode_range": [
+            0.00015227400035655592,
+            0.00030646100003650645
+          ],
+          "decode_range": [
+            7.812499916326487e-05,
+            9.734300056152279e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 9511,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.019896496999535884,
+          "decode_seconds": 0.0004237039993313374,
+          "encode_range": [
+            0.018701292000514513,
+            0.025587602000086918
+          ],
+          "decode_range": [
+            0.0004203789994789986,
+            0.0007782060001773061
+          ],
+          "peak_process_rss_bytes": 34254848,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 13438,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00020444100027816603,
+          "decode_seconds": 8.355299996765098e-05,
+          "encode_range": [
+            0.000178123000296182,
+            0.0002381310005148407
+          ],
+          "decode_range": [
+            7.6993000220682e-05,
+            0.000136190000375791
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 9511,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.014424056999814638,
+          "decode_seconds": 0.00048442399929626845,
+          "encode_range": [
+            0.012120580000555492,
+            0.016189332000067225
+          ],
+          "decode_range": [
+            0.0004534879999482655,
+            0.0004966220003552735
+          ],
+          "peak_process_rss_bytes": 33800192,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 13438,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0001655529995332472,
+          "decode_seconds": 8.346300000994233e-05,
+          "encode_range": [
+            0.00015116299982764758,
+            0.00023857099949964322
+          ],
+          "decode_range": [
+            7.68529998822487e-05,
+            8.713800070836442e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "xargs.1",
+      "group": "Canterbury development",
+      "input_bytes": 4227,
+      "sha256": "c58aeb5d2d1e12751d47e7412b45784405fc30a5671b03d480fa05776e183619",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 1803,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 3.399999968678458e-05,
+          "decode_seconds": 1.6544000573048834e-05,
+          "encode_range": [
+            2.948400015156949e-05,
+            3.8346999645000324e-05
+          ],
+          "decode_range": [
+            1.5421999705722556e-05,
+            1.7815999854065012e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 1728,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0007139109993659076,
+          "decode_seconds": 2.2232999981497414e-05,
+          "encode_range": [
+            0.0006982290005907998,
+            0.0007902939996711211
+          ],
+          "decode_range": [
+            2.0960999790986534e-05,
+            2.253299953736132e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 1812,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.0016155290004462586,
+          "decode_seconds": 7.364799967035651e-05,
+          "encode_range": [
+            0.0011985150003965828,
+            0.005853040000147303
+          ],
+          "decode_range": [
+            6.34239995633834e-05,
+            0.00022748500032321317
+          ],
+          "peak_process_rss_bytes": 33148928,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 2065,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.00065654700028972,
+          "decode_seconds": 9.246599984180648e-05,
+          "encode_range": [
+            0.0005339469998943969,
+            0.0007048880006550462
+          ],
+          "decode_range": [
+            8.7078999968071e-05,
+            0.00013965600010124035
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 1787,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.002542754999922181,
+          "decode_seconds": 3.7414999496832024e-05,
+          "encode_range": [
+            0.0024991710006361245,
+            0.00792096599980141
+          ],
+          "decode_range": [
+            3.542300055414671e-05,
+            5.5391000387317035e-05
+          ],
+          "peak_process_rss_bytes": 33542144,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 1862,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 7.762399945931975e-05,
+          "decode_seconds": 2.3345000045082998e-05,
+          "encode_range": [
+            6.558600034622941e-05,
+            0.00010086899965244811
+          ],
+          "decode_range": [
+            2.1501999981410336e-05,
+            2.7349999982106965e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 1787,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.004024265999760246,
+          "decode_seconds": 4.0319000618183054e-05,
+          "encode_range": [
+            0.0032460600004924345,
+            0.008272062000287406
+          ],
+          "decode_range": [
+            3.511200065986486e-05,
+            4.658899979403941e-05
+          ],
+          "peak_process_rss_bytes": 33542144,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 1862,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 4.316400008974597e-05,
+          "decode_seconds": 2.298399977007648e-05,
+          "encode_range": [
+            3.917800040653674e-05,
+            6.672800009255297e-05
+          ],
+          "decode_range": [
+            2.1021000065957196e-05,
+            2.7460999262984842e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 1787,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0031725720000395086,
+          "decode_seconds": 4.640800034394488e-05,
+          "encode_range": [
+            0.0030734860001757625,
+            0.0087731409994376
+          ],
+          "decode_range": [
+            4.4706000153382774e-05,
+            6.0139000197523274e-05
+          ],
+          "peak_process_rss_bytes": 33542144,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 1862,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 7.570199977635639e-05,
+          "decode_seconds": 2.304400004504714e-05,
+          "encode_range": [
+            6.619800024054712e-05,
+            8.06379994173767e-05
+          ],
+          "decode_range": [
+            2.1121000827406533e-05,
+            2.6549000722297933e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 1787,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.003564869000001636,
+          "decode_seconds": 3.980899964517448e-05,
+          "encode_range": [
+            0.0033147720005217707,
+            0.014238144000046304
+          ],
+          "decode_range": [
+            3.912800002581207e-05,
+            6.751899945811601e-05
+          ],
+          "peak_process_rss_bytes": 33538048,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 1862,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 5.502099975274177e-05,
+          "decode_seconds": 3.159700008836808e-05,
+          "encode_range": [
+            5.1035000069532543e-05,
+            7.076400015648687e-05
+          ],
+          "decode_range": [
+            2.929399943241151e-05,
+            3.747500068129739e-05
+          ],
+          "peak_process_rss_bytes": 17039360,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "mixed-aligned",
+      "group": "synthetic diagnostic",
+      "input_bytes": 786524,
+      "sha256": "3591901a3c2deff92000e3a3cb645edf16a61b90ab605dbc6561929ac61e1c00",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 423784,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0012610270005097846,
+          "decode_seconds": 0.00023666899960517185,
+          "encode_range": [
+            0.001212005000525096,
+            0.001367844000014884
+          ],
+          "decode_range": [
+            0.00022810599966760492,
+            0.0002885250005419948
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 314830,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.07752881800024625,
+          "decode_seconds": 0.0008823890002531698,
+          "encode_range": [
+            0.0747493230001055,
+            0.07993981799972971
+          ],
+          "decode_range": [
+            0.0008700120006324141,
+            0.0010861689997909707
+          ],
+          "peak_process_rss_bytes": 39411712,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 281512,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.12096486599966738,
+          "decode_seconds": 0.0059837819999302155,
+          "encode_range": [
+            0.11430161299995234,
+            0.12275242800023989
+          ],
+          "decode_range": [
+            0.005925706999732938,
+            0.006398301999979594
+          ],
+          "peak_process_rss_bytes": 55955456,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 420361,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.04305719100011629,
+          "decode_seconds": 0.0023825090001992066,
+          "encode_range": [
+            0.03957622799953242,
+            0.04691547300080856
+          ],
+          "decode_range": [
+            0.0023467060000257334,
+            0.002399482999862812
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 285551,
+          "decisions": {
+            "zstd-19": 4,
+            "store": 5,
+            "xz-6": 4
+          },
+          "encode_seconds": 0.1612590380000256,
+          "decode_seconds": 0.004468731000088155,
+          "encode_range": [
+            0.15316672999961156,
+            0.163122812000438
+          ],
+          "decode_range": [
+            0.004416294000293419,
+            0.004833008000787231
+          ],
+          "peak_process_rss_bytes": 40660992,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 419645,
+          "decisions": {
+            "zstd-3": 8,
+            "store": 5
+          },
+          "encode_seconds": 0.0015317659999709576,
+          "decode_seconds": 0.0009759770000528079,
+          "encode_range": [
+            0.0014182189997882233,
+            0.0037275690001479234
+          ],
+          "decode_range": [
+            0.0009712500004752656,
+            0.0015731769999547396
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 352726,
+          "decisions": {
+            "zstd-19": 6,
+            "store": 5,
+            "xz-6": 2
+          },
+          "encode_seconds": 0.054512390999661875,
+          "decode_seconds": 0.0025526290000925655,
+          "encode_range": [
+            0.04377453599954606,
+            0.06645876399943518
+          ],
+          "decode_range": [
+            0.002544005999880028,
+            0.0030173340001056204
+          ],
+          "peak_process_rss_bytes": 42074112,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 419645,
+          "decisions": {
+            "zstd-3": 8,
+            "store": 5
+          },
+          "encode_seconds": 0.0016990320000331849,
+          "decode_seconds": 0.0010802309998325654,
+          "encode_range": [
+            0.001221529000758892,
+            0.0019232619997637812
+          ],
+          "decode_range": [
+            0.0009302099997512414,
+            0.0011100449992227368
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 280435,
+          "decisions": {
+            "zstd-19": 1,
+            "store": 2,
+            "xz-6": 1
+          },
+          "encode_seconds": 0.1775131690001217,
+          "decode_seconds": 0.004162279999945895,
+          "encode_range": [
+            0.17724764400009008,
+            0.19784942000023875
+          ],
+          "decode_range": [
+            0.004012047999822244,
+            0.00709654100046464
+          ],
+          "peak_process_rss_bytes": 49848320,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 423836,
+          "decisions": {
+            "zstd-3": 2,
+            "store": 2
+          },
+          "encode_seconds": 0.0011441460001151427,
+          "decode_seconds": 0.0007960419998198631,
+          "encode_range": [
+            0.0010724390003815643,
+            0.0014075630006118445
+          ],
+          "decode_range": [
+            0.0007720370003880817,
+            0.0011533590004546568
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 280435,
+          "decisions": {
+            "zstd-19": 1,
+            "store": 2,
+            "xz-6": 1
+          },
+          "encode_seconds": 0.04317196000010881,
+          "decode_seconds": 0.004331668999839167,
+          "encode_range": [
+            0.04115111400005844,
+            0.04487736199916981
+          ],
+          "decode_range": [
+            0.004270317999726103,
+            0.004685070000050473
+          ],
+          "peak_process_rss_bytes": 46239744,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 423836,
+          "decisions": {
+            "zstd-3": 2,
+            "store": 2
+          },
+          "encode_seconds": 0.0014595190004911274,
+          "decode_seconds": 0.001120990999879723,
+          "encode_range": [
+            0.0014508760004900978,
+            0.001506317999883322
+          ],
+          "decode_range": [
+            0.0007525580003857613,
+            0.0013378200001170626
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "mixed-offset",
+      "group": "synthetic diagnostic",
+      "input_bytes": 787262,
+      "sha256": "8baf9b771314f3d113d213b3c77ccdd229897dde824ec9d60c3ed0c6f8c820ea",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 423852,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.0006724810000378056,
+          "decode_seconds": 0.00023708899971097708,
+          "encode_range": [
+            0.0006118110004535993,
+            0.0009985099995901692
+          ],
+          "decode_range": [
+            0.00022500100021716207,
+            0.0002872830000342219
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 301287,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.07755028599967773,
+          "decode_seconds": 0.0009602339996490628,
+          "encode_range": [
+            0.06794361900028889,
+            0.0830986450000637
+          ],
+          "decode_range": [
+            0.0008820889997878112,
+            0.0010187199995925766
+          ],
+          "peak_process_rss_bytes": 39411712,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 281520,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.14102746800017485,
+          "decode_seconds": 0.006549833999997645,
+          "encode_range": [
+            0.13159025000004476,
+            0.14265914000043267
+          ],
+          "decode_range": [
+            0.006006874999911815,
+            0.007301661999917997
+          ],
+          "peak_process_rss_bytes": 44998656,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 420836,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.043974594000246725,
+          "decode_seconds": 0.0028233369994268287,
+          "encode_range": [
+            0.04054279100000713,
+            0.04442753600051219
+          ],
+          "decode_range": [
+            0.0026500020003368263,
+            0.0029349209999054438
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 285737,
+          "decisions": {
+            "zstd-19": 6,
+            "store": 3,
+            "xz-6": 4
+          },
+          "encode_seconds": 0.19114659000024403,
+          "decode_seconds": 0.004950118999659026,
+          "encode_range": [
+            0.17074979100016208,
+            0.20582101699983468
+          ],
+          "decode_range": [
+            0.004635174999748415,
+            0.005176603000109026
+          ],
+          "peak_process_rss_bytes": 41455616,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 420485,
+          "decisions": {
+            "zstd-3": 9,
+            "store": 4
+          },
+          "encode_seconds": 0.001317820000622305,
+          "decode_seconds": 0.0008277980005004792,
+          "encode_range": [
+            0.0012522730003183824,
+            0.0013705379997190903
+          ],
+          "decode_range": [
+            0.0008237929996539606,
+            0.001030145999720844
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 318827,
+          "decisions": {
+            "zstd-19": 9,
+            "store": 3,
+            "xz-6": 1
+          },
+          "encode_seconds": 0.050736652999148646,
+          "decode_seconds": 0.0024736420000408543,
+          "encode_range": [
+            0.0501472060004744,
+            0.05190533000040887
+          ],
+          "decode_range": [
+            0.002284122999299143,
+            0.0034574600003907108
+          ],
+          "peak_process_rss_bytes": 40665088,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 420485,
+          "decisions": {
+            "zstd-3": 9,
+            "store": 4
+          },
+          "encode_seconds": 0.0014878499996484607,
+          "decode_seconds": 0.0010835659995791502,
+          "encode_range": [
+            0.0014028859995960374,
+            0.001728805000311695
+          ],
+          "decode_range": [
+            0.0009059940002771327,
+            0.0011424719996284693
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 280770,
+          "decisions": {
+            "zstd-19": 3,
+            "xz-6": 1
+          },
+          "encode_seconds": 0.1669517860000269,
+          "decode_seconds": 0.00419807199978095,
+          "encode_range": [
+            0.16346251899994968,
+            0.17003143100009765
+          ],
+          "decode_range": [
+            0.004130522000195924,
+            0.004676887000641727
+          ],
+          "peak_process_rss_bytes": 47919104,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 424568,
+          "decisions": {
+            "zstd-3": 3,
+            "store": 1
+          },
+          "encode_seconds": 0.0011839830003737006,
+          "decode_seconds": 0.0008984030000647181,
+          "encode_range": [
+            0.0010393100001238054,
+            0.0012232210001457133
+          ],
+          "decode_range": [
+            0.0007905740003479877,
+            0.0010651689999576774
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 280770,
+          "decisions": {
+            "zstd-19": 3,
+            "xz-6": 1
+          },
+          "encode_seconds": 0.05824512900016998,
+          "decode_seconds": 0.0043445169994811295,
+          "encode_range": [
+            0.05672555100045429,
+            0.05897229999936826
+          ],
+          "decode_range": [
+            0.0042852699998547905,
+            0.00466466899979423
+          ],
+          "peak_process_rss_bytes": 44740608,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 424568,
+          "decisions": {
+            "zstd-3": 3,
+            "store": 1
+          },
+          "encode_seconds": 0.0018849349999072729,
+          "decode_seconds": 0.0009755760002008174,
+          "encode_range": [
+            0.0011059979997298797,
+            0.002201221000177611
+          ],
+          "decode_range": [
+            0.0008955989997048164,
+            0.0010987979994752095
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "sample-trap",
+      "group": "synthetic diagnostic",
+      "input_bytes": 262144,
+      "sha256": "f209d0571db2d9920dfa6431746a7e869ef0fbff349e582dbe2859daa16fd4df",
+      "trials": [
+        {
+          "config": "whole:zstd-3",
+          "output_bytes": 2091,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 6.752899935236201e-05,
+          "decode_seconds": 5.07949998791446e-05,
+          "encode_range": [
+            6.730899985996075e-05,
+            7.228600043163169e-05
+          ],
+          "decode_range": [
+            4.915200042887591e-05,
+            5.798500023956876e-05
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "whole:zstd-19",
+          "output_bytes": 2087,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.00045872500049881637,
+          "decode_seconds": 5.998799952067202e-05,
+          "encode_range": [
+            0.00043129499954375206,
+            0.0015200280004137312
+          ],
+          "decode_range": [
+            5.1415999223536346e-05,
+            6.238199966901448e-05
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "whole:xz-6",
+          "output_bytes": 2252,
+          "decisions": {
+            "xz-6": 1
+          },
+          "encode_seconds": 0.004677265999816882,
+          "decode_seconds": 0.0006195220003064605,
+          "encode_range": [
+            0.0045462039997801185,
+            0.009456695000153559
+          ],
+          "decode_range": [
+            0.000587103999350802,
+            0.000636007000139216
+          ],
+          "peak_process_rss_bytes": 39833600,
+          "verified": true
+        },
+        {
+          "config": "whole:qcore-2",
+          "output_bytes": 2151,
+          "decisions": {
+            "qcore-2": 1
+          },
+          "encode_seconds": 0.008055070000409614,
+          "decode_seconds": 0.0003060299995922833,
+          "encode_range": [
+            0.007805451999956858,
+            0.00927663900074549
+          ],
+          "decode_range": [
+            0.00029375299982348224,
+            0.0005861430008735624
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "oracle:65536",
+          "output_bytes": 2229,
+          "decisions": {
+            "zstd-19": 4
+          },
+          "encode_seconds": 0.00848970900005952,
+          "decode_seconds": 0.00027301200043439167,
+          "encode_range": [
+            0.008068780000030529,
+            0.009091166999496636
+          ],
+          "decode_range": [
+            0.00026674299988371786,
+            0.0003622539998104912
+          ],
+          "peak_process_rss_bytes": 38100992,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:65536",
+          "output_bytes": 2235,
+          "decisions": {
+            "zstd-3": 4
+          },
+          "encode_seconds": 0.00038019000021449756,
+          "decode_seconds": 0.00025047899998753564,
+          "encode_range": [
+            0.00033397200058971066,
+            0.0003878210000038962
+          ],
+          "decode_range": [
+            0.0002473540007486008,
+            0.00025938199996744515
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:65536",
+          "output_bytes": 2229,
+          "decisions": {
+            "zstd-19": 4
+          },
+          "encode_seconds": 0.004074840000612312,
+          "decode_seconds": 0.00029153899959055707,
+          "encode_range": [
+            0.004022762999738916,
+            0.004370163999737997
+          ],
+          "decode_range": [
+            0.00026669199996831594,
+            0.00034431699987180764
+          ],
+          "peak_process_rss_bytes": 37625856,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:65536",
+          "output_bytes": 2235,
+          "decisions": {
+            "zstd-3": 4
+          },
+          "encode_seconds": 0.00029770800028927624,
+          "decode_seconds": 0.00026940699990518624,
+          "encode_range": [
+            0.0002772980005829595,
+            0.00029847000041627325
+          ],
+          "decode_range": [
+            0.0002483649996065651,
+            0.00030113400043774163
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "oracle:262144",
+          "output_bytes": 2146,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.01589089699973556,
+          "decode_seconds": 0.0002531419995648321,
+          "encode_range": [
+            0.01295889100038039,
+            0.022023546999662358
+          ],
+          "decode_range": [
+            0.00023485600013373187,
+            0.0002953949997390737
+          ],
+          "peak_process_rss_bytes": 42385408,
+          "verified": true
+        },
+        {
+          "config": "fast-sample:262144",
+          "output_bytes": 2150,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00026031400011561345,
+          "decode_seconds": 0.0002450009997119196,
+          "encode_range": [
+            0.0002435489996059914,
+            0.0009488770001553348
+          ],
+          "decode_range": [
+            0.00022473099943454145,
+            0.0002773689993773587
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        },
+        {
+          "config": "portfolio-sample:262144",
+          "output_bytes": 2146,
+          "decisions": {
+            "zstd-19": 1
+          },
+          "encode_seconds": 0.0025550919999659527,
+          "decode_seconds": 0.00025672799984022276,
+          "encode_range": [
+            0.0022446459997809143,
+            0.007252137999785191
+          ],
+          "decode_range": [
+            0.00023284300004888792,
+            0.00029876999997213716
+          ],
+          "peak_process_rss_bytes": 40206336,
+          "verified": true
+        },
+        {
+          "config": "fixed-zstd-3:262144",
+          "output_bytes": 2150,
+          "decisions": {
+            "zstd-3": 1
+          },
+          "encode_seconds": 0.00022676400021737209,
+          "decode_seconds": 0.00022661299954052083,
+          "encode_range": [
+            0.00022070500017434824,
+            0.0013102900002195383
+          ],
+          "decode_range": [
+            0.00021118100085004698,
+            0.0003049689994440996
+          ],
+          "peak_process_rss_bytes": 25186304,
+          "verified": true
+        }
+      ]
+    }
+  ]
+}

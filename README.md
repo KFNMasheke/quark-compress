@@ -93,6 +93,11 @@ See [reproduction instructions](benchmarks/README.md) and
 [explicit parity gates](docs/PARITY_GATES.md). These results do not establish
 general parity or include a native 7-Zip comparison.
 
+The [adaptive selection experiment](docs/ADAPTIVE_RESULTS.md) compares exhaustive
+per-block codec selection with cheap sampled routing, including all selection
+costs, real metadata, whole-file baselines and sampling counterexamples.
+This lab experiment leaves QCore and its CLI formats unchanged.
+
 ## Current boundaries
 
 32 MiB input limit per file; whole-file buffers; codec working memory is additional
