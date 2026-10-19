@@ -28,3 +28,8 @@ in-memory encoding/decoding only, excludes file I/O and does not measure RSS.
 It is a smoke test, not a publishable performance study. QCore output includes
 frame, checksum and block metadata; standard codec outputs are single streams,
 not directory archives. No native 7-Zip result is inferred from Python XZ.
+
+The separate `benchmarks/run_suite.py` adds all 11 Canterbury files, stronger
+fixed baselines, isolated worker processes, timing ranges and peak process RSS.
+Its manifest, reproduction steps and limitations are in `benchmarks/README.md`.
+The synthetic smoke test and public-corpus study are distinct measurements.

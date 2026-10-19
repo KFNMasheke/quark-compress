@@ -1,4 +1,4 @@
-"""QCore v1: independent experimental lossless block codec.
+"""QCore v2: independent experimental lossless block codec.
 
 Original implementation of established LZ77, canonical Huffman and delta coding
 techniques. No third-party compression engine is called by this module.
@@ -7,17 +7,32 @@ Not a claim of algorithmic novelty. See docs/QCORE_FORMAT.md.
 from collections import defaultdict, deque
 import hashlib
 import heapq
+import os
 import struct
 import zlib  # CRC32 only; never used for compression here.
 
-MAGIC = b"QKC1"
+from . import split as _split
+
+try:
+    if os.environ.get("QUARK_PURE_PYTHON") == "1":
+        raise ImportError("Reference implementation requested")
+    from . import _qcore_native as _native
+except ImportError:
+    _native = None
+
+BACKEND = "native" if _native is not None else "python"
+
+MAGIC = b"QKC2"
+LEGACY_MAGIC = b"QKC1"
 BLOCK_SIZE = 65536
+V2_BLOCK_SIZE = 262144
 MAX_INPUT = 32 * 1024 * 1024
 FRAME = struct.Struct(">4sQII32s")
 BLOCK = struct.Struct(">BIII")
 RAW, LZ, DELTA_LZ, REFERENCE, HUFFMAN, LZ_HUFFMAN, DELTA_LZ_HUFFMAN = range(7)
+SPLIT_LZ, DELTA_SPLIT_LZ = 7, 8
 METHODS = ("raw", "lz77", "delta-lz77", "reference", "huffman",
-           "lz77-huffman", "delta-lz77-huffman")
+           "lz77-huffman", "delta-lz77-huffman", "split-lz77", "delta-split-lz77")
 MAX_CONTAINER = FRAME.size + MAX_INPUT + (MAX_INPUT // BLOCK_SIZE) * BLOCK.size
 
 
@@ -145,6 +160,8 @@ def _codes(lengths: list[int]) -> dict[int, tuple[int, int]]:
 def _huff_encode(data: bytes) -> bytes | None:
     if not data:
         return None
+    if _native is not None:
+        return _native.huff_encode(data)
     frequencies = [0] * 256
     for value in data:
         frequencies[value] += 1
@@ -213,15 +230,27 @@ def _huff_decode(data: bytes, limit: int) -> bytes:
     return bytes(out)
 
 
-def compress(data: bytes) -> bytes:
+def compress(data: bytes, *, format_version: int = 2) -> bytes:
     if len(data) > MAX_INPUT:
         raise ValueError("QCore input exceeds 32 MiB lab budget")
-    count = (len(data) + BLOCK_SIZE - 1) // BLOCK_SIZE
-    out = bytearray(FRAME.pack(MAGIC, len(data), BLOCK_SIZE, count,
+    if format_version not in (1, 2):
+        raise ValueError("Unsupported QCore format version")
+    candidate = _compress_blocks(data, format_version, BLOCK_SIZE)
+    if format_version == 2 and len(data) > BLOCK_SIZE:
+        dense = _compress_blocks(data, format_version, V2_BLOCK_SIZE)
+        if len(dense) < len(candidate):
+            return dense
+    return candidate
+
+
+def _compress_blocks(data: bytes, format_version: int, block_size: int) -> bytes:
+    count = (len(data) + block_size - 1) // block_size
+    magic = MAGIC if format_version == 2 else LEGACY_MAGIC
+    out = bytearray(FRAME.pack(magic, len(data), block_size, count,
                                hashlib.sha256(data).digest()))
     seen = {}
     for index in range(count):
-        raw = data[index * BLOCK_SIZE:(index + 1) * BLOCK_SIZE]
+        raw = data[index * block_size:(index + 1) * block_size]
         previous = seen.get(raw)
         candidates = [(RAW, raw)]
         if previous is not None:
@@ -235,6 +264,11 @@ def compress(data: bytes) -> bytes:
                 encoded = _huff_encode(value)
                 if encoded is not None:
                     candidates.append((method, encoded))
+            if format_version == 2:
+                for method, tokens in ((SPLIT_LZ, lz), (DELTA_SPLIT_LZ, delta_lz)):
+                    # Avoid six-model setup on tiny or already expanding parses.
+                    if 1024 <= len(tokens) < len(raw):
+                        candidates.append((method, _split.pack(tokens, _huff_encode)))
             seen[raw] = index
         method, payload = min(candidates, key=lambda item: len(item[1]))
         out.extend(BLOCK.pack(method, len(raw), len(payload), zlib.crc32(raw)))
@@ -248,9 +282,12 @@ def _unpack(data: bytes, max_output: int, materialize: bool):
     if not FRAME.size <= len(data) <= MAX_CONTAINER:
         raise FormatError("Invalid QCore frame size")
     magic, total, block_size, count, digest = FRAME.unpack_from(data)
-    if magic != MAGIC or block_size != BLOCK_SIZE:
+    if magic not in (MAGIC, LEGACY_MAGIC):
         raise FormatError("Unsupported QCore format")
-    if total > max_output or count != (total + BLOCK_SIZE - 1) // BLOCK_SIZE:
+    allowed_sizes = (BLOCK_SIZE,) if magic == LEGACY_MAGIC else (BLOCK_SIZE, V2_BLOCK_SIZE)
+    if block_size not in allowed_sizes:
+        raise FormatError("Unsupported QCore block size")
+    if total > max_output or count != (total + block_size - 1) // block_size:
         raise FormatError("Invalid or over-budget output size")
     out, pos, metadata = bytearray(), FRAME.size, []
     for index in range(count):
@@ -258,8 +295,9 @@ def _unpack(data: bytes, max_output: int, materialize: bool):
             raise FormatError("Truncated block header")
         method, raw_size, packed_size, checksum = BLOCK.unpack_from(data, pos)
         pos += BLOCK.size
-        expected = min(BLOCK_SIZE, total - index * BLOCK_SIZE)
-        if method >= len(METHODS) or raw_size != expected:
+        expected = min(block_size, total - index * block_size)
+        method_count = 7 if magic == LEGACY_MAGIC else len(METHODS)
+        if method >= method_count or raw_size != expected:
             raise FormatError("Invalid block method or output size")
         if not 1 <= packed_size <= raw_size or pos + packed_size > len(data):
             raise FormatError("Invalid block payload size")
@@ -277,14 +315,20 @@ def _unpack(data: bytes, max_output: int, materialize: bool):
             target = int.from_bytes(payload, "big")
             if target >= index:
                 raise FormatError("Reference must point to an earlier block")
-            raw = bytes(out[target * BLOCK_SIZE:target * BLOCK_SIZE + raw_size])
+            raw = bytes(out[target * block_size:target * block_size + raw_size])
             if len(raw) != raw_size:
                 raise FormatError("Invalid reference range")
         else:
+            if method in (SPLIT_LZ, DELTA_SPLIT_LZ):
+                try:
+                    payload = _split.unpack(payload, raw_size + (raw_size + 127) // 128,
+                                            _huff_decode)
+                except ValueError as error:
+                    raise FormatError(str(error)) from error
             if method in (HUFFMAN, LZ_HUFFMAN, DELTA_LZ_HUFFMAN):
                 payload = _huff_decode(payload, raw_size + (raw_size + 127) // 128)
             raw = payload if method == HUFFMAN else _lz_decode(payload, raw_size)
-            if method in (DELTA_LZ, DELTA_LZ_HUFFMAN):
+            if method in (DELTA_LZ, DELTA_LZ_HUFFMAN, DELTA_SPLIT_LZ):
                 raw = _undelta(raw)
         if len(raw) != raw_size or zlib.crc32(raw) != checksum:
             raise FormatError("Block checksum or length mismatch")
@@ -295,7 +339,8 @@ def _unpack(data: bytes, max_output: int, materialize: bool):
         raise FormatError("Frame digest mismatch")
     if materialize:
         return bytes(out)
-    return {"format": "QKC1", "input_bytes": total, "frame_bytes": len(data),
+    return {"format": magic.decode("ascii"), "block_size": block_size,
+            "input_bytes": total, "frame_bytes": len(data),
             "verified": True, "blocks": metadata}
 
 
@@ -307,3 +352,28 @@ def decompress(data: bytes, *, max_output: int = MAX_INPUT) -> bytes:
 def inspect(data: bytes) -> dict:
     """Fully decode and verify before returning block statistics."""
     return _unpack(data, MAX_INPUT, False)
+
+
+# Keep the reference decoder available for cross-implementation testing.
+_python_lz_encode = _lz_encode
+_python_lz_decode = _lz_decode
+_python_huff_decode = _huff_decode
+_python_delta = _delta
+_python_undelta = _undelta
+
+if _native is not None:
+    _lz_encode = _native.lz_encode
+    _delta = _native.delta
+    _undelta = _native.undelta
+
+    def _lz_decode(data: bytes, expected: int) -> bytes:
+        try:
+            return _native.lz_decode(data, expected)
+        except ValueError as error:
+            raise FormatError(str(error)) from error
+
+    def _huff_decode(data: bytes, limit: int) -> bytes:
+        try:
+            return _native.huff_decode(data, limit)
+        except ValueError as error:
+            raise FormatError(str(error)) from error

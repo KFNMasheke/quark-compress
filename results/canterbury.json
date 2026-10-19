@@ -1,0 +1,2048 @@
+{
+  "suite": "Canterbury (all 11 files)",
+  "manifest": {
+    "source": "Canterbury corpus, via zlib-ng/corpora mirror",
+    "upstream": "https://corpus.canterbury.ac.nz/",
+    "mirror_commit": "fd01e05b0e8d1736e7178427297f3790402d4bf4",
+    "redistribution": "Data not bundled; consult original corpus terms before redistributing.",
+    "files": [
+      {
+        "name": "alice29.txt",
+        "bytes": 148481,
+        "sha256": "4cbce86540bcef439f901c89de486d295aa3848e8c4cbc911561054479e73960",
+        "git_blob_sha": "f1156864c532cad5acd454c8383d3cdf07d5bb96",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/alice29.txt"
+      },
+      {
+        "name": "asyoulik.txt",
+        "bytes": 125179,
+        "sha256": "eaa3526fe53859f34ecdf255712f9ecf0b2c903451d4755b2edaa2e2599cb0fc",
+        "git_blob_sha": "88dc7b60fe2afeeedd1ba1bb5d4229b17b29b041",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/asyoulik.txt"
+      },
+      {
+        "name": "cp.html",
+        "bytes": 24603,
+        "sha256": "e0cd21cef5b6c4069461e949be100080c3ce887de6f1dd8626c480528efaaf61",
+        "git_blob_sha": "1d0ca37eb97cfd01aba1df2451c89de7988b45cc",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/cp.html"
+      },
+      {
+        "name": "fields.c",
+        "bytes": 11150,
+        "sha256": "85d73e354cc50cec76cb5a50537cf8dc035f8cbb8480f9e1cbe2f7d6c23393c7",
+        "git_blob_sha": "63cdc030a1ff12ce26e2d878976462a91f2ba505",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/fields.c"
+      },
+      {
+        "name": "grammar.lsp",
+        "bytes": 3721,
+        "sha256": "1b0805dfc0ae706b35aac2bb4e15f02485efd24dda5dbd29de7b2f84d1a88c15",
+        "git_blob_sha": "c60a993889ada422db0a5c76a1a475a301b75ecb",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/grammar.lsp"
+      },
+      {
+        "name": "kennedy.xls",
+        "bytes": 1029744,
+        "sha256": "9af47239ca29dfe20e633f80bbbb9a4cc9783d0803d7b2b5626f42e4c3790420",
+        "git_blob_sha": "9a851154254d2902e51ed9da28966a7f13c58ff6",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/kennedy.xls"
+      },
+      {
+        "name": "lcet10.txt",
+        "bytes": 419235,
+        "sha256": "938e69e61b3411d8a9e2e630f4265000d810f3dbf66bac58cac19493753526ec",
+        "git_blob_sha": "26b187d0482fbf6e2dd84cc1a6a9dc293a6400a7",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/lcet10.txt"
+      },
+      {
+        "name": "plrabn12.txt",
+        "bytes": 471162,
+        "sha256": "7f498b78f161d81bf4e121e80fa052b491babb64de44b6364304a117db5fbbb3",
+        "git_blob_sha": "dfa72b6d0921197ba57e7cd704f9c92e4dcb6003",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/plrabn12.txt"
+      },
+      {
+        "name": "ptt5",
+        "bytes": 513216,
+        "sha256": "0ec3a75089bb52342813496b17e51377bc9eba3cb519a444d67025354841d650",
+        "git_blob_sha": "bdd7f3658f31d349d57bab0f79ec144e86d54dba",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/ptt5"
+      },
+      {
+        "name": "sum",
+        "bytes": 38240,
+        "sha256": "ee5733cd76ecc2f9d8ff156adc3c02a7a851051dcf43a2d56ff4ee4ff606bdb3",
+        "git_blob_sha": "758fd815aa4b2269804ca8a218397cc46e0aed01",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/sum"
+      },
+      {
+        "name": "xargs.1",
+        "bytes": 4227,
+        "sha256": "c58aeb5d2d1e12751d47e7412b45784405fc30a5671b03d480fa05776e183619",
+        "git_blob_sha": "a9f39a731163d97cd035518530164715ffac258c",
+        "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/xargs.1"
+      }
+    ]
+  },
+  "quark_version": "0.4.0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "zstandard_binding": "0.25.0",
+  "zstd": [
+    1,
+    5,
+    7
+  ],
+  "repetitions": 3,
+  "warmups": 1,
+  "qcore_source_sha256": "567ba7f495528839fd29476b98d1d2f31544ebdd7dfcb34079688056ec4ae764",
+  "native_source_sha256": "260ea0d055d506fa9acb8b7248ea529cb1c09cda73223206a1bbd9bd66549e43",
+  "split_source_sha256": "41c4cf1bda5ffce3b5ca3e71585f468c246c9153c3903f030a81c9e754d8785a",
+  "measurement": "Sequential isolated child process per file and codec; in-memory codec work only. Peak RSS includes interpreter, input and warmup; it is not incremental codec allocation. No cold-disk throughput measurement or 7-Zip/native XZ equivalence claim.",
+  "files": [
+    {
+      "name": "alice29.txt",
+      "input_bytes": 148481,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 148481,
+          "output_bytes": 71139,
+          "encode_seconds_median": 0.3474876199998107,
+          "decode_seconds_median": 0.13519459799954348,
+          "encode_seconds_range": [
+            0.33926505199997337,
+            0.3747671689998242
+          ],
+          "decode_seconds_range": [
+            0.13270751599975483,
+            0.13603339000019332
+          ],
+          "process_peak_rss_bytes": 27119616,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 148481,
+          "output_bytes": 68082,
+          "encode_seconds_median": 0.00857051599996339,
+          "decode_seconds_median": 0.0012368439993224456,
+          "encode_seconds_range": [
+            0.00808229499943991,
+            0.008747967000090284
+          ],
+          "decode_seconds_range": [
+            0.0011095659992861329,
+            0.0013395650003076298
+          ],
+          "process_peak_rss_bytes": 14856192,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 148481,
+          "output_bytes": 53570,
+          "encode_seconds_median": 0.022411801000089326,
+          "decode_seconds_median": 0.0010032589998445474,
+          "encode_seconds_range": [
+            0.021134237999831385,
+            0.025046925999959058
+          ],
+          "decode_seconds_range": [
+            0.0009929640000336803,
+            0.0011395399997127242
+          ],
+          "process_peak_rss_bytes": 15773696,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 148481,
+          "output_bytes": 53420,
+          "encode_seconds_median": 0.012399650000588736,
+          "decode_seconds_median": 0.000577611999688088,
+          "encode_seconds_range": [
+            0.011870299999827694,
+            0.012703719000455749
+          ],
+          "decode_seconds_range": [
+            0.00057198300055461,
+            0.0008184970001821057
+          ],
+          "process_peak_rss_bytes": 14548992,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 148481,
+          "output_bytes": 56258,
+          "encode_seconds_median": 0.0008003599996300181,
+          "decode_seconds_median": 0.0001782629997251206,
+          "encode_seconds_range": [
+            0.0007860690002416959,
+            0.001023198999973829
+          ],
+          "decode_seconds_range": [
+            0.00017390699940733612,
+            0.00021494700013136026
+          ],
+          "process_peak_rss_bytes": 15335424,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 148481,
+          "output_bytes": 48655,
+          "encode_seconds_median": 0.04177679999975226,
+          "decode_seconds_median": 0.00018732699936663266,
+          "encode_seconds_range": [
+            0.040433840000332566,
+            0.043054914999629545
+          ],
+          "decode_seconds_range": [
+            0.00018703499972616555,
+            0.00020870800017291913
+          ],
+          "process_peak_rss_bytes": 19660800,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 148481,
+          "output_bytes": 48655,
+          "encode_seconds_median": 0.053088616999957594,
+          "decode_seconds_median": 0.00018908899983216543,
+          "encode_seconds_range": [
+            0.049339158999828214,
+            0.05583678899984079
+          ],
+          "decode_seconds_range": [
+            0.00018799699955707183,
+            0.00018917899978987407
+          ],
+          "process_peak_rss_bytes": 19660800,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 148481,
+          "output_bytes": 47876,
+          "encode_seconds_median": 0.064917886999865,
+          "decode_seconds_median": 0.0017557290002514492,
+          "encode_seconds_range": [
+            0.06365280200043344,
+            0.06654242100012198
+          ],
+          "decode_seconds_range": [
+            0.0015588179994665552,
+            0.0017880059995150077
+          ],
+          "process_peak_rss_bytes": 83099648,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 148481,
+          "output_bytes": 47936,
+          "encode_seconds_median": 0.057241229000283056,
+          "decode_seconds_median": 0.001677772999755689,
+          "encode_seconds_range": [
+            0.05530168000041158,
+            0.058513885000138544
+          ],
+          "decode_seconds_range": [
+            0.0015253390001817024,
+            0.0017245019998881617
+          ],
+          "process_peak_rss_bytes": 83099648,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 148481,
+          "output_bytes": 43102,
+          "encode_seconds_median": 0.009173293999992893,
+          "decode_seconds_median": 0.003372811999724945,
+          "encode_seconds_range": [
+            0.008582102000218583,
+            0.009178041000268422
+          ],
+          "decode_seconds_range": [
+            0.003345993000039016,
+            0.0038308169996525976
+          ],
+          "process_peak_rss_bytes": 15597568,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "asyoulik.txt",
+      "input_bytes": 125179,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 125179,
+          "output_bytes": 63593,
+          "encode_seconds_median": 0.31457300700003543,
+          "decode_seconds_median": 0.11670045299979392,
+          "encode_seconds_range": [
+            0.3030801730001258,
+            0.32201632800024527
+          ],
+          "decode_seconds_range": [
+            0.11492455400002655,
+            0.11832184000013513
+          ],
+          "process_peak_rss_bytes": 27877376,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 125179,
+          "output_bytes": 61042,
+          "encode_seconds_median": 0.006721638999806601,
+          "decode_seconds_median": 0.0009725820000312524,
+          "encode_seconds_range": [
+            0.006440064000344137,
+            0.0070849339999767835
+          ],
+          "decode_seconds_range": [
+            0.0009140359998127678,
+            0.0009889160000966513
+          ],
+          "process_peak_rss_bytes": 14966784,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 125179,
+          "output_bytes": 49188,
+          "encode_seconds_median": 0.01699136300067039,
+          "decode_seconds_median": 0.0007903440000518458,
+          "encode_seconds_range": [
+            0.016798679999737942,
+            0.017775051000171516
+          ],
+          "decode_seconds_range": [
+            0.0007614609994561761,
+            0.0007916060003481107
+          ],
+          "process_peak_rss_bytes": 15491072,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 125179,
+          "output_bytes": 48790,
+          "encode_seconds_median": 0.01000391299930925,
+          "decode_seconds_median": 0.0005008070002077147,
+          "encode_seconds_range": [
+            0.009377491000122973,
+            0.010170036000090477
+          ],
+          "decode_seconds_range": [
+            0.0004900420008198125,
+            0.000556169000446971
+          ],
+          "process_peak_rss_bytes": 14286848,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 125179,
+          "output_bytes": 50328,
+          "encode_seconds_median": 0.000866587000018626,
+          "decode_seconds_median": 0.0001799749998099287,
+          "encode_seconds_range": [
+            0.0008527459995093523,
+            0.0010547239999141311
+          ],
+          "decode_seconds_range": [
+            0.00017889399987325305,
+            0.00018209900008514524
+          ],
+          "process_peak_rss_bytes": 14942208,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 125179,
+          "output_bytes": 45141,
+          "encode_seconds_median": 0.03299648300071567,
+          "decode_seconds_median": 0.00017639999987295596,
+          "encode_seconds_range": [
+            0.03280240700041759,
+            0.03650930700041499
+          ],
+          "decode_seconds_range": [
+            0.00017567900067660958,
+            0.00017640999976720195
+          ],
+          "process_peak_rss_bytes": 16777216,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 125179,
+          "output_bytes": 45141,
+          "encode_seconds_median": 0.03542938600003254,
+          "decode_seconds_median": 0.00019674000031955075,
+          "encode_seconds_range": [
+            0.03364778200011642,
+            0.03625706499951775
+          ],
+          "decode_seconds_range": [
+            0.000177190999238519,
+            0.00032719200044084573
+          ],
+          "process_peak_rss_bytes": 16777216,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 125179,
+          "output_bytes": 44536,
+          "encode_seconds_median": 0.06068491499991069,
+          "decode_seconds_median": 0.001632784999856085,
+          "encode_seconds_range": [
+            0.056566945000668056,
+            0.062068186000033165
+          ],
+          "decode_seconds_range": [
+            0.0013167889992473647,
+            0.0016618379995634314
+          ],
+          "process_peak_rss_bytes": 82837504,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 125179,
+          "output_bytes": 44592,
+          "encode_seconds_median": 0.05327147200023319,
+          "decode_seconds_median": 0.001338750999821059,
+          "encode_seconds_range": [
+            0.05300734400043439,
+            0.0562149560000762
+          ],
+          "decode_seconds_range": [
+            0.001328907000242907,
+            0.0015197379998426186
+          ],
+          "process_peak_rss_bytes": 82968576,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 125179,
+          "output_bytes": 39569,
+          "encode_seconds_median": 0.007326148999709403,
+          "decode_seconds_median": 0.002996322999933909,
+          "encode_seconds_range": [
+            0.007102879999365541,
+            0.007955406000291987
+          ],
+          "decode_seconds_range": [
+            0.0028993289997742977,
+            0.003269915999226214
+          ],
+          "process_peak_rss_bytes": 15224832,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "cp.html",
+      "input_bytes": 24603,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 24603,
+          "output_bytes": 10067,
+          "encode_seconds_median": 0.04969899100069597,
+          "decode_seconds_median": 0.01748033299918461,
+          "encode_seconds_range": [
+            0.04929082000035123,
+            0.04995831299947895
+          ],
+          "decode_seconds_range": [
+            0.017328089000329783,
+            0.018350113999986206
+          ],
+          "process_peak_rss_bytes": 20897792,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 24603,
+          "output_bytes": 9954,
+          "encode_seconds_median": 0.0009088280003197724,
+          "decode_seconds_median": 0.00019117199917673133,
+          "encode_seconds_range": [
+            0.000860847999319958,
+            0.0009926819993779645
+          ],
+          "decode_seconds_range": [
+            0.00015247499959514244,
+            0.00020636399949580664
+          ],
+          "process_peak_rss_bytes": 14434304,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 24603,
+          "output_bytes": 8502,
+          "encode_seconds_median": 0.001379612000164343,
+          "decode_seconds_median": 0.00019104100010736147,
+          "encode_seconds_range": [
+            0.0013770189998467686,
+            0.0013849999995727558
+          ],
+          "decode_seconds_range": [
+            0.00018899800033977954,
+            0.00019354500000190455
+          ],
+          "process_peak_rss_bytes": 14442496,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 24603,
+          "output_bytes": 7952,
+          "encode_seconds_median": 0.0006099379997976939,
+          "decode_seconds_median": 9.334800051874481e-05,
+          "encode_seconds_range": [
+            0.0005916709997109137,
+            0.00071302000014839
+          ],
+          "decode_seconds_range": [
+            8.079899998847395e-05,
+            9.756399958860129e-05
+          ],
+          "process_peak_rss_bytes": 14286848,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 24603,
+          "output_bytes": 8468,
+          "encode_seconds_median": 9.399900045536924e-05,
+          "decode_seconds_median": 2.495700027793646e-05,
+          "encode_seconds_range": [
+            8.424400039075408e-05,
+            0.00017550899974594358
+          ],
+          "decode_seconds_range": [
+            2.3343999600911047e-05,
+            2.583799960120814e-05
+          ],
+          "process_peak_rss_bytes": 14811136,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 24603,
+          "output_bytes": 7717,
+          "encode_seconds_median": 0.005680476000634371,
+          "decode_seconds_median": 3.210700015188195e-05,
+          "encode_seconds_range": [
+            0.005497525999999198,
+            0.005875253000340308
+          ],
+          "decode_seconds_range": [
+            3.060500057472382e-05,
+            3.213699983461993e-05
+          ],
+          "process_peak_rss_bytes": 15073280,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 24603,
+          "output_bytes": 7717,
+          "encode_seconds_median": 0.006016680000357155,
+          "decode_seconds_median": 3.2887999623198994e-05,
+          "encode_seconds_range": [
+            0.005813471000692516,
+            0.0060598039999604225
+          ],
+          "decode_seconds_range": [
+            3.143600042676553e-05,
+            3.463100074441172e-05
+          ],
+          "process_peak_rss_bytes": 15073280,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 24603,
+          "output_bytes": 7644,
+          "encode_seconds_median": 0.02935071399951994,
+          "decode_seconds_median": 0.0003061300003537326,
+          "encode_seconds_range": [
+            0.02905293599997094,
+            0.02952482999990025
+          ],
+          "decode_seconds_range": [
+            0.0002906079998865607,
+            0.0003286339997430332
+          ],
+          "process_peak_rss_bytes": 81920000,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 24603,
+          "output_bytes": 7652,
+          "encode_seconds_median": 0.02955807999933313,
+          "decode_seconds_median": 0.0003165359994454775,
+          "encode_seconds_range": [
+            0.028571035999448213,
+            0.03015566000067338
+          ],
+          "decode_seconds_range": [
+            0.0002919099997598096,
+            0.0003940500000680913
+          ],
+          "process_peak_rss_bytes": 81920000,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 24603,
+          "output_bytes": 7624,
+          "encode_seconds_median": 0.003782140000112122,
+          "decode_seconds_median": 0.0011617159998422721,
+          "encode_seconds_range": [
+            0.0021187009997447603,
+            0.004022743999485101
+          ],
+          "decode_seconds_range": [
+            0.0005189639996387996,
+            0.0023529059999418678
+          ],
+          "process_peak_rss_bytes": 14569472,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "fields.c",
+      "input_bytes": 11150,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 11150,
+          "output_bytes": 4199,
+          "encode_seconds_median": 0.020391680999637174,
+          "decode_seconds_median": 0.007685919000323338,
+          "encode_seconds_range": [
+            0.02019154699974024,
+            0.020663041000261728
+          ],
+          "decode_seconds_range": [
+            0.007244548000016948,
+            0.007746978999421117
+          ],
+          "process_peak_rss_bytes": 16011264,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 11150,
+          "output_bytes": 4114,
+          "encode_seconds_median": 0.0004353809999884106,
+          "decode_seconds_median": 0.0001367010008834768,
+          "encode_seconds_range": [
+            0.00041366999994352227,
+            0.0004529770003500744
+          ],
+          "decode_seconds_range": [
+            7.245699998748023e-05,
+            0.00014845900022919523
+          ],
+          "process_peak_rss_bytes": 14438400,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 11150,
+          "output_bytes": 3505,
+          "encode_seconds_median": 0.0013024879999647965,
+          "decode_seconds_median": 0.00015852300020924304,
+          "encode_seconds_range": [
+            0.0011265690000072937,
+            0.0013126840003678808
+          ],
+          "decode_seconds_range": [
+            0.00012007600071228808,
+            0.00015997599984984845
+          ],
+          "process_peak_rss_bytes": 14426112,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 11150,
+          "output_bytes": 3127,
+          "encode_seconds_median": 0.00024839600064296974,
+          "decode_seconds_median": 3.188700065948069e-05,
+          "encode_seconds_range": [
+            0.0002440190000925213,
+            0.0002850400005627307
+          ],
+          "decode_seconds_range": [
+            2.6609000087773893e-05,
+            4.2843000301218126e-05
+          ],
+          "process_peak_rss_bytes": 14286848,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 11150,
+          "output_bytes": 3384,
+          "encode_seconds_median": 0.00010171999929298181,
+          "decode_seconds_median": 1.4651999663328752e-05,
+          "encode_seconds_range": [
+            6.194199977471726e-05,
+            0.00017622900031710742
+          ],
+          "decode_seconds_range": [
+            1.4121000276645645e-05,
+            1.6713999684725422e-05
+          ],
+          "process_peak_rss_bytes": 14680064,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 11150,
+          "output_bytes": 3019,
+          "encode_seconds_median": 0.004033180000078573,
+          "decode_seconds_median": 1.9778999558184296e-05,
+          "encode_seconds_range": [
+            0.0039287849995162105,
+            0.004845782000302279
+          ],
+          "decode_seconds_range": [
+            1.899800008686725e-05,
+            2.0079000023542903e-05
+          ],
+          "process_peak_rss_bytes": 14811136,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 11150,
+          "output_bytes": 3019,
+          "encode_seconds_median": 0.00292232299943862,
+          "decode_seconds_median": 1.738599985401379e-05,
+          "encode_seconds_range": [
+            0.0026567320001049666,
+            0.0029624119997606613
+          ],
+          "decode_seconds_range": [
+            1.7254999875149224e-05,
+            1.8136999642592855e-05
+          ],
+          "process_peak_rss_bytes": 14811136,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 11150,
+          "output_bytes": 3028,
+          "encode_seconds_median": 0.026074841000081506,
+          "decode_seconds_median": 0.00013385700003709644,
+          "encode_seconds_range": [
+            0.0248731299998326,
+            0.02633826700002828
+          ],
+          "decode_seconds_range": [
+            0.00013157400007912656,
+            0.00017254399972443935
+          ],
+          "process_peak_rss_bytes": 81788928,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 11150,
+          "output_bytes": 3032,
+          "encode_seconds_median": 0.028123637000135204,
+          "decode_seconds_median": 0.00014836799982731463,
+          "encode_seconds_range": [
+            0.028008972999487014,
+            0.03229101400029322
+          ],
+          "decode_seconds_range": [
+            0.00013674199999513803,
+            0.00019763100044656312
+          ],
+          "process_peak_rss_bytes": 81788928,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 11150,
+          "output_bytes": 3039,
+          "encode_seconds_median": 0.0011557830002857372,
+          "decode_seconds_median": 0.00023871199937275378,
+          "encode_seconds_range": [
+            0.0011293629995634547,
+            0.0013875330005248543
+          ],
+          "decode_seconds_range": [
+            0.00023753999994369224,
+            0.0004431429997566738
+          ],
+          "process_peak_rss_bytes": 14569472,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "grammar.lsp",
+      "input_bytes": 3721,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 3721,
+          "output_bytes": 1781,
+          "encode_seconds_median": 0.011007220999999845,
+          "decode_seconds_median": 0.00579443300011917,
+          "encode_seconds_range": [
+            0.008974051000222971,
+            0.012185268999928667
+          ],
+          "decode_seconds_range": [
+            0.003366467999512679,
+            0.008675996999954805
+          ],
+          "process_peak_rss_bytes": 14811136,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 3721,
+          "output_bytes": 1777,
+          "encode_seconds_median": 0.00022996899951976957,
+          "decode_seconds_median": 4.2783000026247464e-05,
+          "encode_seconds_range": [
+            0.00019702000008692266,
+            0.00023857099949964322
+          ],
+          "decode_seconds_range": [
+            3.861699951812625e-05,
+            8.275199979834724e-05
+          ],
+          "process_peak_rss_bytes": 14442496,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 3721,
+          "output_bytes": 1536,
+          "encode_seconds_median": 0.0006258209996303776,
+          "decode_seconds_median": 8.030800017877482e-05,
+          "encode_seconds_range": [
+            0.0006084859996917658,
+            0.0006293970000115223
+          ],
+          "decode_seconds_range": [
+            7.953699969220906e-05,
+            8.433499988313997e-05
+          ],
+          "process_peak_rss_bytes": 14442496,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 3721,
+          "output_bytes": 1234,
+          "encode_seconds_median": 7.53009999243659e-05,
+          "decode_seconds_median": 1.47319997267914e-05,
+          "encode_seconds_range": [
+            6.193099943629932e-05,
+            8.569600049668225e-05
+          ],
+          "decode_seconds_range": [
+            1.3269999726617243e-05,
+            2.137100000254577e-05
+          ],
+          "process_peak_rss_bytes": 14286848,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 3721,
+          "output_bytes": 1295,
+          "encode_seconds_median": 3.066499994019978e-05,
+          "decode_seconds_median": 6.029000360285863e-06,
+          "encode_seconds_range": [
+            2.611899981275201e-05,
+            3.669400030048564e-05
+          ],
+          "decode_seconds_range": [
+            5.607999810308684e-06,
+            7.481000466214027e-06
+          ],
+          "process_peak_rss_bytes": 14417920,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 3721,
+          "output_bytes": 1215,
+          "encode_seconds_median": 0.000642535999759275,
+          "decode_seconds_median": 8.402000275964383e-06,
+          "encode_seconds_range": [
+            0.0006113709996498073,
+            0.0007277320000866894
+          ],
+          "decode_seconds_range": [
+            7.86199962021783e-06,
+            9.444000170333311e-06
+          ],
+          "process_peak_rss_bytes": 14548992,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 3721,
+          "output_bytes": 1215,
+          "encode_seconds_median": 0.0013459120000334224,
+          "decode_seconds_median": 9.835000128077809e-06,
+          "encode_seconds_range": [
+            0.0006534530002682004,
+            0.0020797629995286115
+          ],
+          "decode_seconds_range": [
+            8.39200038171839e-06,
+            1.0294999810867012e-05
+          ],
+          "process_peak_rss_bytes": 14548992,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 3721,
+          "output_bytes": 1292,
+          "encode_seconds_median": 0.030965440999352722,
+          "decode_seconds_median": 9.937599952536402e-05,
+          "encode_seconds_range": [
+            0.030195839000043634,
+            0.03294800200001191
+          ],
+          "decode_seconds_range": [
+            9.453900020162109e-05,
+            0.00010277099954691948
+          ],
+          "process_peak_rss_bytes": 81694720,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 3721,
+          "output_bytes": 1292,
+          "encode_seconds_median": 0.029155786999581323,
+          "decode_seconds_median": 8.325300041178707e-05,
+          "encode_seconds_range": [
+            0.02339020699946559,
+            0.030698079000103462
+          ],
+          "decode_seconds_range": [
+            7.532100062235259e-05,
+            9.86360000752029e-05
+          ],
+          "process_peak_rss_bytes": 81694720,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 3721,
+          "output_bytes": 1283,
+          "encode_seconds_median": 0.0004911440000796574,
+          "decode_seconds_median": 8.702800005266909e-05,
+          "encode_seconds_range": [
+            0.0004639229991880711,
+            0.0005194649993427447
+          ],
+          "decode_seconds_range": [
+            8.486400020046858e-05,
+            8.86409998201998e-05
+          ],
+          "process_peak_rss_bytes": 14286848,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "kennedy.xls",
+      "input_bytes": 1029744,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 1029744,
+          "output_bytes": 229283,
+          "encode_seconds_median": 2.400954165999792,
+          "decode_seconds_median": 0.4864972840005066,
+          "encode_seconds_range": [
+            2.226983370999733,
+            2.4674672920000376
+          ],
+          "decode_seconds_range": [
+            0.471828087999711,
+            0.5470478910001475
+          ],
+          "process_peak_rss_bytes": 26423296,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 1029744,
+          "output_bytes": 227295,
+          "encode_seconds_median": 0.03397993900034635,
+          "decode_seconds_median": 0.0054152749999047955,
+          "encode_seconds_range": [
+            0.030883898999491066,
+            0.03854071500063583
+          ],
+          "decode_seconds_range": [
+            0.004678088999753527,
+            0.006767967000087083
+          ],
+          "process_peak_rss_bytes": 18210816,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 1029744,
+          "output_bytes": 150357,
+          "encode_seconds_median": 0.09488118199988094,
+          "decode_seconds_median": 0.006404071000361,
+          "encode_seconds_range": [
+            0.09034497199991165,
+            0.10016518399970664
+          ],
+          "decode_seconds_range": [
+            0.006259697999666969,
+            0.006582103000255302
+          ],
+          "process_peak_rss_bytes": 19415040,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 1029744,
+          "output_bytes": 207041,
+          "encode_seconds_median": 0.4513674159998118,
+          "decode_seconds_median": 0.0024656010000398965,
+          "encode_seconds_range": [
+            0.4458212999998068,
+            0.4735654549995161
+          ],
+          "decode_seconds_range": [
+            0.002253728999676241,
+            0.002639596999870264
+          ],
+          "process_peak_rss_bytes": 17563648,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 1029744,
+          "output_bytes": 111831,
+          "encode_seconds_median": 0.0025032160001501325,
+          "decode_seconds_median": 0.0009352469996883883,
+          "encode_seconds_range": [
+            0.00245738900048309,
+            0.002708127999540011
+          ],
+          "decode_seconds_range": [
+            0.0008300019999296637,
+            0.0010604209992379765
+          ],
+          "process_peak_rss_bytes": 17424384,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 1029744,
+          "output_bytes": 64829,
+          "encode_seconds_median": 0.31166950699935114,
+          "decode_seconds_median": 0.0016063960001702071,
+          "encode_seconds_range": [
+            0.3067737070005023,
+            0.31661947700013116
+          ],
+          "decode_seconds_range": [
+            0.0012828389999413048,
+            0.002871839000363252
+          ],
+          "process_peak_rss_bytes": 34156544,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 1029744,
+          "output_bytes": 64818,
+          "encode_seconds_median": 0.6932467510005154,
+          "decode_seconds_median": 0.0013818449997415883,
+          "encode_seconds_range": [
+            0.6843096399998103,
+            0.7039100639995013
+          ],
+          "decode_seconds_range": [
+            0.0013023970004724106,
+            0.0016569300005357945
+          ],
+          "process_peak_rss_bytes": 34152448,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 1029744,
+          "output_bytes": 49116,
+          "encode_seconds_median": 0.3003045009991183,
+          "decode_seconds_median": 0.006148233999738295,
+          "encode_seconds_range": [
+            0.2980506020003304,
+            0.3241814129996783
+          ],
+          "decode_seconds_range": [
+            0.006025042999681318,
+            0.006265856999561947
+          ],
+          "process_peak_rss_bytes": 92143616,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 1029744,
+          "output_bytes": 51868,
+          "encode_seconds_median": 0.8337063689996285,
+          "decode_seconds_median": 0.005851376999999047,
+          "encode_seconds_range": [
+            0.7870512630006488,
+            0.839242309999463
+          ],
+          "decode_seconds_range": [
+            0.005766121999840834,
+            0.007784534000165877
+          ],
+          "process_peak_rss_bytes": 92143616,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 1029744,
+          "output_bytes": 130280,
+          "encode_seconds_median": 0.04724650599928282,
+          "decode_seconds_median": 0.013275268999677792,
+          "encode_seconds_range": [
+            0.04591233999963151,
+            0.05267711299984512
+          ],
+          "decode_seconds_range": [
+            0.012936370000716124,
+            0.013356600000406615
+          ],
+          "process_peak_rss_bytes": 21889024,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "lcet10.txt",
+      "input_bytes": 419235,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 419235,
+          "output_bytes": 189498,
+          "encode_seconds_median": 1.0131562090000443,
+          "decode_seconds_median": 0.3627841410007022,
+          "encode_seconds_range": [
+            0.955012486000669,
+            1.039092845999221
+          ],
+          "decode_seconds_range": [
+            0.3568256520002251,
+            0.3829544469999746
+          ],
+          "process_peak_rss_bytes": 28524544,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 419235,
+          "output_bytes": 182445,
+          "encode_seconds_median": 0.024376559000302223,
+          "decode_seconds_median": 0.0038692480002282537,
+          "encode_seconds_range": [
+            0.023285383000256843,
+            0.025810731000092346
+          ],
+          "decode_seconds_range": [
+            0.003610527000091679,
+            0.0050956240002051345
+          ],
+          "process_peak_rss_bytes": 15835136,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 419235,
+          "output_bytes": 142874,
+          "encode_seconds_median": 0.053788834000442876,
+          "decode_seconds_median": 0.0024920299993027584,
+          "encode_seconds_range": [
+            0.05269080700054474,
+            0.05477156199958699
+          ],
+          "decode_seconds_range": [
+            0.0022566829993593274,
+            0.0026095530001839506
+          ],
+          "process_peak_rss_bytes": 17514496,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 419235,
+          "output_bytes": 142616,
+          "encode_seconds_median": 0.03183852899928752,
+          "decode_seconds_median": 0.0017423859999325941,
+          "encode_seconds_range": [
+            0.030976809000094363,
+            0.0319302730003983
+          ],
+          "decode_seconds_range": [
+            0.001606957000149123,
+            0.0019255259994679363
+          ],
+          "process_peak_rss_bytes": 15659008,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 419235,
+          "output_bytes": 139166,
+          "encode_seconds_median": 0.0020440200005396036,
+          "decode_seconds_median": 0.0004004800002803677,
+          "encode_seconds_range": [
+            0.0020235399997545755,
+            0.0026996050000889227
+          ],
+          "decode_seconds_range": [
+            0.000394070000766078,
+            0.0004123879998587654
+          ],
+          "process_peak_rss_bytes": 16052224,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 419235,
+          "output_bytes": 120039,
+          "encode_seconds_median": 0.10856694500034791,
+          "decode_seconds_median": 0.0004967220002072281,
+          "encode_seconds_range": [
+            0.10424284700002318,
+            0.12491896599931351
+          ],
+          "decode_seconds_range": [
+            0.0004883689998678165,
+            0.0005603150002571056
+          ],
+          "process_peak_rss_bytes": 24428544,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 419235,
+          "output_bytes": 120039,
+          "encode_seconds_median": 0.09383559999969293,
+          "decode_seconds_median": 0.00042453600053704577,
+          "encode_seconds_range": [
+            0.09296455700041406,
+            0.09448481599974912
+          ],
+          "decode_seconds_range": [
+            0.00042368300000816816,
+            0.0004588759993566782
+          ],
+          "process_peak_rss_bytes": 24494080,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 419235,
+          "output_bytes": 118052,
+          "encode_seconds_median": 0.12682391099951928,
+          "decode_seconds_median": 0.0035810330000458634,
+          "encode_seconds_range": [
+            0.12422519500069029,
+            0.13504943499992805
+          ],
+          "decode_seconds_range": [
+            0.003374208999957773,
+            0.0036490339998636045
+          ],
+          "process_peak_rss_bytes": 86384640,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 419235,
+          "output_bytes": 118024,
+          "encode_seconds_median": 0.15317491600035282,
+          "decode_seconds_median": 0.004093159999683849,
+          "encode_seconds_range": [
+            0.13574065099965082,
+            0.15393302099982975
+          ],
+          "decode_seconds_range": [
+            0.0034536479997768765,
+            0.00565012500010198
+          ],
+          "process_peak_rss_bytes": 86380544,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 419235,
+          "output_bytes": 107648,
+          "encode_seconds_median": 0.02432525899985194,
+          "decode_seconds_median": 0.01029780299995764,
+          "encode_seconds_range": [
+            0.023762230000102136,
+            0.024355012000341958
+          ],
+          "decode_seconds_range": [
+            0.010280346000399732,
+            0.010498536999875796
+          ],
+          "process_peak_rss_bytes": 18141184,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "plrabn12.txt",
+      "input_bytes": 471162,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 471162,
+          "output_bytes": 257010,
+          "encode_seconds_median": 1.178039305999846,
+          "decode_seconds_median": 0.47080752799956826,
+          "encode_seconds_range": [
+            1.1195108700003402,
+            1.2286496409997198
+          ],
+          "decode_seconds_range": [
+            0.4434141550000277,
+            0.471588712999619
+          ],
+          "process_peak_rss_bytes": 29032448,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 471162,
+          "output_bytes": 247128,
+          "encode_seconds_median": 0.026355804000559147,
+          "decode_seconds_median": 0.004451155000424478,
+          "encode_seconds_range": [
+            0.025075859000025957,
+            0.02684336299989809
+          ],
+          "decode_seconds_range": [
+            0.00421815199933917,
+            0.005008236000321631
+          ],
+          "process_peak_rss_bytes": 16216064,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 471162,
+          "output_bytes": 193577,
+          "encode_seconds_median": 0.06559025400019891,
+          "decode_seconds_median": 0.0030679580004289164,
+          "encode_seconds_range": [
+            0.0648495939994973,
+            0.06780431500010309
+          ],
+          "decode_seconds_range": [
+            0.002914361999501125,
+            0.003201796000212198
+          ],
+          "process_peak_rss_bytes": 17801216,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 471162,
+          "output_bytes": 193174,
+          "encode_seconds_median": 0.04588697700000921,
+          "decode_seconds_median": 0.002180260999921302,
+          "encode_seconds_range": [
+            0.044812094000008074,
+            0.045969589999913296
+          ],
+          "decode_seconds_range": [
+            0.002098510999530845,
+            0.0022375250000550295
+          ],
+          "process_peak_rss_bytes": 15892480,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 471162,
+          "output_bytes": 190218,
+          "encode_seconds_median": 0.0031293790007111966,
+          "decode_seconds_median": 0.0005286390005494468,
+          "encode_seconds_range": [
+            0.003043271999558783,
+            0.00336162100029469
+          ],
+          "decode_seconds_range": [
+            0.0005159290003575734,
+            0.0005817270002808073
+          ],
+          "process_peak_rss_bytes": 16289792,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 471162,
+          "output_bytes": 166944,
+          "encode_seconds_median": 0.11686228899998241,
+          "decode_seconds_median": 0.0005868850003025727,
+          "encode_seconds_range": [
+            0.1152274589994704,
+            0.11996879700018326
+          ],
+          "decode_seconds_range": [
+            0.0005583830006798962,
+            0.00060386000041035
+          ],
+          "process_peak_rss_bytes": 24653824,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 471162,
+          "output_bytes": 166944,
+          "encode_seconds_median": 0.11557192600048438,
+          "decode_seconds_median": 0.0005787629997939803,
+          "encode_seconds_range": [
+            0.11059298700001818,
+            0.15440308899997035
+          ],
+          "decode_seconds_range": [
+            0.0005613980001726304,
+            0.000690266999299638
+          ],
+          "process_peak_rss_bytes": 24653824,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 471162,
+          "output_bytes": 164816,
+          "encode_seconds_median": 0.16964945699965028,
+          "decode_seconds_median": 0.005037015000198153,
+          "encode_seconds_range": [
+            0.16483801499998663,
+            0.171224218000134
+          ],
+          "decode_seconds_range": [
+            0.005024956999477581,
+            0.005333772000085446
+          ],
+          "process_peak_rss_bytes": 86650880,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 471162,
+          "output_bytes": 164868,
+          "encode_seconds_median": 0.16018805199928465,
+          "decode_seconds_median": 0.005259521999505523,
+          "encode_seconds_range": [
+            0.1577310699994996,
+            0.1603591619996223
+          ],
+          "decode_seconds_range": [
+            0.0049686239999573445,
+            0.005370505999962916
+          ],
+          "process_peak_rss_bytes": 86646784,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 471162,
+          "output_bytes": 145545,
+          "encode_seconds_median": 0.03180386899930454,
+          "decode_seconds_median": 0.014161324000269815,
+          "encode_seconds_range": [
+            0.03076374699958251,
+            0.032147376000466465
+          ],
+          "decode_seconds_range": [
+            0.01396154000030947,
+            0.014765093999812962
+          ],
+          "process_peak_rss_bytes": 18731008,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "ptt5",
+      "input_bytes": 513216,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 513216,
+          "output_bytes": 65580,
+          "encode_seconds_median": 0.8186103110001568,
+          "decode_seconds_median": 0.13400162299967633,
+          "encode_seconds_range": [
+            0.802736360000381,
+            0.8759003169998323
+          ],
+          "decode_seconds_range": [
+            0.12837119000050734,
+            0.1395972440004698
+          ],
+          "process_peak_rss_bytes": 25346048,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 513216,
+          "output_bytes": 65186,
+          "encode_seconds_median": 0.015297199000087858,
+          "decode_seconds_median": 0.0016488979999849107,
+          "encode_seconds_range": [
+            0.014877972000249429,
+            0.016046964000452135
+          ],
+          "decode_seconds_range": [
+            0.0015838919998714118,
+            0.001782986000762321
+          ],
+          "process_peak_rss_bytes": 15876096,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 513216,
+          "output_bytes": 56402,
+          "encode_seconds_median": 0.042480174000047555,
+          "decode_seconds_median": 0.0021841369998583104,
+          "encode_seconds_range": [
+            0.041885888000251725,
+            0.04395175500030746
+          ],
+          "decode_seconds_range": [
+            0.0020198249994791695,
+            0.002389940000284696
+          ],
+          "process_peak_rss_bytes": 17633280,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 513216,
+          "output_bytes": 52233,
+          "encode_seconds_median": 0.0756196699994689,
+          "decode_seconds_median": 0.0009999519998018513,
+          "encode_seconds_range": [
+            0.07274496500031091,
+            0.0946785579999414
+          ],
+          "decode_seconds_range": [
+            0.0009187429996018182,
+            0.0011675189998641144
+          ],
+          "process_peak_rss_bytes": 15728640,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 513216,
+          "output_bytes": 54424,
+          "encode_seconds_median": 0.000831194000056712,
+          "decode_seconds_median": 0.00031468300039705355,
+          "encode_seconds_range": [
+            0.0007549520005341037,
+            0.001180869000563689
+          ],
+          "decode_seconds_range": [
+            0.0003057610001633293,
+            0.00036887399983243085
+          ],
+          "process_peak_rss_bytes": 16195584,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 513216,
+          "output_bytes": 43644,
+          "encode_seconds_median": 0.17534581099971547,
+          "decode_seconds_median": 0.0002759870003501419,
+          "encode_seconds_range": [
+            0.16809117299999343,
+            0.18697626100038178
+          ],
+          "decode_seconds_range": [
+            0.00025937199916370446,
+            0.000333711999701336
+          ],
+          "process_peak_rss_bytes": 24571904,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 513216,
+          "output_bytes": 43541,
+          "encode_seconds_median": 0.23348256900044362,
+          "decode_seconds_median": 0.00026661300034902524,
+          "encode_seconds_range": [
+            0.22078662600051757,
+            0.25145342700034234
+          ],
+          "decode_seconds_range": [
+            0.00026603199967212277,
+            0.00029816000005666865
+          ],
+          "process_peak_rss_bytes": 24571904,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 513216,
+          "output_bytes": 41992,
+          "encode_seconds_median": 0.1010406220002551,
+          "decode_seconds_median": 0.00235118699947634,
+          "encode_seconds_range": [
+            0.09953238799971587,
+            0.10210229700078344
+          ],
+          "decode_seconds_range": [
+            0.0021113740003784187,
+            0.002383844999712892
+          ],
+          "process_peak_rss_bytes": 87580672,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 513216,
+          "output_bytes": 39860,
+          "encode_seconds_median": 0.25137969800016435,
+          "decode_seconds_median": 0.0023189589992398396,
+          "encode_seconds_range": [
+            0.2503154579999318,
+            0.25592979799967
+          ],
+          "decode_seconds_range": [
+            0.0020953900002496084,
+            0.0027360039994164254
+          ],
+          "process_peak_rss_bytes": 87576576,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 513216,
+          "output_bytes": 49759,
+          "encode_seconds_median": 0.008800947000054293,
+          "decode_seconds_median": 0.004813577999811969,
+          "encode_seconds_range": [
+            0.008668282000144245,
+            0.009290719999626162
+          ],
+          "decode_seconds_range": [
+            0.004731958000775194,
+            0.005524606000108179
+          ],
+          "process_peak_rss_bytes": 16396288,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "sum",
+      "input_bytes": 38240,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 38240,
+          "output_bytes": 15794,
+          "encode_seconds_median": 0.08143896799992945,
+          "decode_seconds_median": 0.02881974599949899,
+          "encode_seconds_range": [
+            0.0789672539995081,
+            0.08326323900018906
+          ],
+          "decode_seconds_range": [
+            0.02859218100002181,
+            0.029787503000079596
+          ],
+          "process_peak_rss_bytes": 25411584,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 38240,
+          "output_bytes": 15565,
+          "encode_seconds_median": 0.0012504339993029134,
+          "decode_seconds_median": 0.00023615800000698073,
+          "encode_seconds_range": [
+            0.0012309849998928257,
+            0.0012682600008702138
+          ],
+          "decode_seconds_range": [
+            0.000232382999456604,
+            0.00024613300047349185
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 38240,
+          "output_bytes": 14270,
+          "encode_seconds_median": 0.0019998190000478644,
+          "decode_seconds_median": 0.0003106180001850589,
+          "encode_seconds_range": [
+            0.0019934500005547307,
+            0.002027730000008887
+          ],
+          "decode_seconds_range": [
+            0.00030966600024839863,
+            0.00033020699993357994
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 38240,
+          "output_bytes": 12850,
+          "encode_seconds_median": 0.010355520000302931,
+          "decode_seconds_median": 0.00014249000014388002,
+          "encode_seconds_range": [
+            0.009987857999476546,
+            0.010613730999466497
+          ],
+          "decode_seconds_range": [
+            0.00013821399988955818,
+            0.00014670700056740316
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 38240,
+          "output_bytes": 13379,
+          "encode_seconds_median": 0.00020979900000384077,
+          "decode_seconds_median": 4.053999964526156e-05,
+          "encode_seconds_range": [
+            0.0001546989997223136,
+            0.0004162940003880067
+          ],
+          "decode_seconds_range": [
+            3.779500002565328e-05,
+            8.512600015819771e-05
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 38240,
+          "output_bytes": 11111,
+          "encode_seconds_median": 0.008822439000141458,
+          "decode_seconds_median": 6.712899994454347e-05,
+          "encode_seconds_range": [
+            0.007994379000592744,
+            0.009676869999566406
+          ],
+          "decode_seconds_range": [
+            6.495599973277422e-05,
+            6.807000045228051e-05
+          ],
+          "process_peak_rss_bytes": 15859712,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 38240,
+          "output_bytes": 11105,
+          "encode_seconds_median": 0.01933595199989213,
+          "decode_seconds_median": 6.67590002194629e-05,
+          "encode_seconds_range": [
+            0.01885985800072376,
+            0.02074645300035627
+          ],
+          "decode_seconds_range": [
+            6.483499964815564e-05,
+            6.689899964840151e-05
+          ],
+          "process_peak_rss_bytes": 15859712,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 38240,
+          "output_bytes": 9452,
+          "encode_seconds_median": 0.034180898999693454,
+          "decode_seconds_median": 0.000459587000477768,
+          "encode_seconds_range": [
+            0.03286328699959995,
+            0.03924470800029667
+          ],
+          "decode_seconds_range": [
+            0.0004157029998168582,
+            0.0009027699998114258
+          ],
+          "process_peak_rss_bytes": 82051072,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 38240,
+          "output_bytes": 9500,
+          "encode_seconds_median": 0.03476676199989015,
+          "decode_seconds_median": 0.0005283380005494109,
+          "encode_seconds_range": [
+            0.03434497099988221,
+            0.03619628600063152
+          ],
+          "decode_seconds_range": [
+            0.0004153219997533597,
+            0.0006317000006674789
+          ],
+          "process_peak_rss_bytes": 82182144,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 38240,
+          "output_bytes": 12909,
+          "encode_seconds_median": 0.0029443170005833963,
+          "decode_seconds_median": 0.000807389999863517,
+          "encode_seconds_range": [
+            0.0028795610005545313,
+            0.0033341609996568877
+          ],
+          "decode_seconds_range": [
+            0.0007965029999468243,
+            0.0009047830008057645
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "xargs.1",
+      "input_bytes": 4227,
+      "trials": [
+        {
+          "codec": "qcore-python-v1",
+          "input_bytes": 4227,
+          "output_bytes": 2419,
+          "encode_seconds_median": 0.008313937999446352,
+          "decode_seconds_median": 0.0038548379998246673,
+          "encode_seconds_range": [
+            0.008256811999672209,
+            0.008759663000091678
+          ],
+          "decode_seconds_range": [
+            0.003790723999372858,
+            0.0038938950001465855
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v1",
+          "input_bytes": 4227,
+          "output_bytes": 2416,
+          "encode_seconds_median": 0.00016860799951246008,
+          "decode_seconds_median": 4.029000047012232e-05,
+          "encode_seconds_range": [
+            0.00014134799948806176,
+            0.00019285399957880145
+          ],
+          "decode_seconds_range": [
+            3.8205999771889765e-05,
+            4.500599970924668e-05
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "qcore-native-v2",
+          "input_bytes": 4227,
+          "output_bytes": 2065,
+          "encode_seconds_median": 0.0005660240003635408,
+          "decode_seconds_median": 0.0001552379999338882,
+          "encode_seconds_range": [
+            0.0005626479996863054,
+            0.0005818170002385159
+          ],
+          "decode_seconds_range": [
+            8.310199973493582e-05,
+            0.0002750650000962196
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 4227,
+          "output_bytes": 1748,
+          "encode_seconds_median": 6.20420005361666e-05,
+          "decode_seconds_median": 1.7886000023281667e-05,
+          "encode_seconds_range": [
+            5.088499983685324e-05,
+            7.693299994571134e-05
+          ],
+          "decode_seconds_range": [
+            1.4741999621037394e-05,
+            2.428499919915339e-05
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 4227,
+          "output_bytes": 1803,
+          "encode_seconds_median": 3.333000040584011e-05,
+          "decode_seconds_median": 6.8700001065735705e-06,
+          "encode_seconds_range": [
+            2.9073000405333005e-05,
+            3.709399970830418e-05
+          ],
+          "decode_seconds_range": [
+            6.390000635292381e-06,
+            8.020999302971177e-06
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 4227,
+          "output_bytes": 1728,
+          "encode_seconds_median": 0.0005934640003033564,
+          "decode_seconds_median": 9.04300031834282e-06,
+          "encode_seconds_range": [
+            0.0005742260000261012,
+            0.0006680440001218813
+          ],
+          "decode_seconds_range": [
+            8.912999874155503e-06,
+            9.36399919737596e-06
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "zstd-22",
+          "input_bytes": 4227,
+          "output_bytes": 1728,
+          "encode_seconds_median": 0.0004932660003760247,
+          "decode_seconds_median": 7.861000085540581e-06,
+          "encode_seconds_range": [
+            0.00047470900062762666,
+            0.0005573909993472626
+          ],
+          "decode_seconds_range": [
+            7.18100000085542e-06,
+            8.693000381754246e-06
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 4227,
+          "output_bytes": 1812,
+          "encode_seconds_median": 0.026243287000397686,
+          "decode_seconds_median": 9.637199946155306e-05,
+          "encode_seconds_range": [
+            0.024709696999707376,
+            0.030645490999631875
+          ],
+          "decode_seconds_range": [
+            9.098400005314033e-05,
+            0.00017605999983061338
+          ],
+          "process_peak_rss_bytes": 81739776,
+          "verified": true
+        },
+        {
+          "codec": "xz-9e",
+          "input_bytes": 4227,
+          "output_bytes": 1812,
+          "encode_seconds_median": 0.02747687400005816,
+          "decode_seconds_median": 9.3837999884272e-05,
+          "encode_seconds_range": [
+            0.025965126999835775,
+            0.027710788000149478
+          ],
+          "decode_seconds_range": [
+            9.183500060316874e-05,
+            9.646299986343365e-05
+          ],
+          "process_peak_rss_bytes": 81739776,
+          "verified": true
+        },
+        {
+          "codec": "bzip2-9",
+          "input_bytes": 4227,
+          "output_bytes": 1762,
+          "encode_seconds_median": 0.0005703400001948467,
+          "decode_seconds_median": 0.00011226500009797746,
+          "encode_seconds_range": [
+            0.0004534480003712815,
+            0.0007282329997906345
+          ],
+          "decode_seconds_range": [
+            0.00011209500007680617,
+            0.0002176609996240586
+          ],
+          "process_peak_rss_bytes": 15466496,
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "complete": true,
+  "local_native_build": {
+    "compiler_version": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+    "command": "CC=cc LDSHARED='cc -shared' python setup.py build_ext --inplace",
+    "optimization": "setuptools/CPython supplied -O3 and host hardening flags; see build instructions"
+  }
+}

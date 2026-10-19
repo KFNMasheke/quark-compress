@@ -58,9 +58,11 @@ CRC32 and SHA-256 detect accidental corruption; neither authenticates the sender
 
 ## LZ77 tokens
 
-The encoder uses three-byte hash keys, up to 16 recent positions per key,
+The Python reference encoder uses three-byte hash keys, up to 16 recent positions per key,
 greedy longest matching, a 65,535-byte distance window and 65,535-byte maximum
 match. It emits matches of at least 4 bytes; the format permits 3-byte matches.
+The optional native encoder uses a different match search with compatible
+tokens, documented in QCORE_V2_FORMAT.md.
 
 - Token below 128: literal length = token + 1, followed by those 1–128 bytes.
 - Token 128 through 254: match length = (token & 127) + 3, followed by a

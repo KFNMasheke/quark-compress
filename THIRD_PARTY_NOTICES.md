@@ -12,6 +12,10 @@ documentation. It does not relicense dependencies or research references.
   upstream licenses and are supplied by the user's Python installation.
 
 No source or binaries from other repositories in `docs/RESEARCH.md` are bundled.
+The original C accelerator links to the user's CPython installation; CPython
+retains its own license. Canterbury corpus bytes are not distributed here.
+Its benchmark manifest and download tooling identify the original source and
+mirror; consult those sources' terms before redistributing the corpus.
 Review complete dependency trees and preserve applicable notices before future
 integration. This initial inventory is not a completed dependency audit or a
 substitute for the upstream license texts.

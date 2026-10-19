@@ -11,6 +11,7 @@ import zlib
 
 import zstandard
 from quarkcompress import __version__
+from quarkcompress.qcore import BACKEND
 from quarkcompress.core import select
 
 rng = random.Random(20261019)
@@ -27,7 +28,10 @@ corpus = {
 report = {"notice": "Synthetic smoke test, including experimental QCore v1. No public corpus, native 7-Zip, or external preprocessing tested. In-memory timings exclude disk I/O. No peak-memory measurement. QCore frame overhead is included; standard codec outputs are single streams, not directory archives.",
           "environment": {"python": sys.version, "platform": platform.platform(),
                           "quark_compress": __version__,
+                          "qcore_backend": BACKEND,
                           "qcore_source_sha256": hashlib.sha256(Path("quarkcompress/qcore.py").read_bytes()).hexdigest(),
+                          "qcore_native_source_sha256": hashlib.sha256(Path("native/qcore_native.c").read_bytes()).hexdigest(),
+                          "qcore_split_source_sha256": hashlib.sha256(Path("quarkcompress/split.py").read_bytes()).hexdigest(),
                           "zstandard_binding": zstandard.__version__,
                           "zstd": zstandard.ZSTD_VERSION, "zlib": zlib.ZLIB_RUNTIME_VERSION},
           "repetitions": 3, "warmups": 1, "files": []}

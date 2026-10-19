@@ -11,9 +11,9 @@ import zstandard as zstd
 from . import qcore
 
 MAX_INPUT = 32 * 1024 * 1024
-CODECS = ("store", "gzip-9", "zstd-3", "zstd-19", "xz-6", "xz-9", "qcore-1")
+CODECS = ("store", "gzip-9", "zstd-3", "zstd-19", "xz-6", "xz-9", "qcore-1", "qcore-2")
 SUFFIX = {"store": ".raw", "gzip-9": ".gz", "zstd-3": ".zst",
-          "zstd-19": ".zst", "xz-6": ".xz", "xz-9": ".xz", "qcore-1": ".qkc"}
+          "zstd-19": ".zst", "xz-6": ".xz", "xz-9": ".xz", "qcore-1": ".qkc", "qcore-2": ".qkc"}
 
 
 @dataclass
@@ -37,8 +37,8 @@ def read_input(path: Path) -> bytes:
 
 
 def encode(data: bytes, codec: str) -> bytes:
-    if codec == "qcore-1":
-        return qcore.compress(data)
+    if codec in ("qcore-1", "qcore-2"):
+        return qcore.compress(data, format_version=int(codec[-1]))
     if codec == "store":
         return data
     if codec == "gzip-9":
@@ -53,7 +53,7 @@ def encode(data: bytes, codec: str) -> bytes:
 
 def decode(data: bytes, codec: str) -> bytes:
     """Trusted locally generated trial data only. Not an untrusted archive API."""
-    if codec == "qcore-1":
+    if codec in ("qcore-1", "qcore-2"):
         return qcore.decompress(data)
     if codec == "store":
         return data

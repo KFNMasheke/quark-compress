@@ -1,0 +1,34 @@
+{
+  "status": "rejected; all tested variants larger than the existing baseline",
+  "scope": "Three Canterbury binary files; no general conclusion about numeric GIS data",
+  "backend": "native",
+  "records": [
+    {
+      "name": "kennedy.xls",
+      "baseline_qcore_v2_bytes": 150357,
+      "projected_variants": {
+        "2": 171370,
+        "4": 179793,
+        "8": 204279
+      }
+    },
+    {
+      "name": "ptt5",
+      "baseline_qcore_v2_bytes": 56402,
+      "projected_variants": {
+        "2": 60662,
+        "4": 63389,
+        "8": 65939
+      }
+    },
+    {
+      "name": "sum",
+      "baseline_qcore_v2_bytes": 14270,
+      "projected_variants": {
+        "2": 15240,
+        "4": 15781,
+        "8": 16895
+      }
+    }
+  ]
+}

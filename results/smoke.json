@@ -3,8 +3,11 @@
   "environment": {
     "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
     "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
-    "quark_compress": "0.2.0",
-    "qcore_source_sha256": "a142b1487269f29a06b2a6afafa6e622b39d09b2b0f6104d32b9ee44a8f645a9",
+    "quark_compress": "0.4.0",
+    "qcore_backend": "native",
+    "qcore_source_sha256": "567ba7f495528839fd29476b98d1d2f31544ebdd7dfcb34079688056ec4ae764",
+    "qcore_native_source_sha256": "260ea0d055d506fa9acb8b7248ea529cb1c09cda73223206a1bbd9bd66549e43",
+    "qcore_split_source_sha256": "41c4cf1bda5ffce3b5ca3e71585f468c246c9153c3903f030a81c9e754d8785a",
     "zstandard_binding": "0.25.0",
     "zstd": [
       1,
@@ -21,14 +24,14 @@
       "input_bytes": 456000,
       "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
       "selected": "zstd-19",
-      "all_trials_wall_seconds_median": 0.3343426599999475,
+      "all_trials_wall_seconds_median": 0.06630352499996661,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 456000,
           "output_bytes": 456000,
-          "encode_seconds": 1.0520002433622722e-06,
-          "decode_seconds": 4.410003384691663e-07,
+          "encode_seconds": 5.510000846697949e-07,
+          "decode_seconds": 2.8100021154386923e-07,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         },
@@ -36,8 +39,8 @@
           "codec": "gzip-9",
           "input_bytes": 456000,
           "output_bytes": 1419,
-          "encode_seconds": 0.0011201600000276812,
-          "decode_seconds": 0.00028467899983297684,
+          "encode_seconds": 0.0013447399996948661,
+          "decode_seconds": 0.0003549819994077552,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         },
@@ -45,8 +48,8 @@
           "codec": "zstd-3",
           "input_bytes": 456000,
           "output_bytes": 119,
-          "encode_seconds": 0.00013877399987904937,
-          "decode_seconds": 0.0001086400002350274,
+          "encode_seconds": 0.00020630400013033068,
+          "decode_seconds": 0.0001742570002534194,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         },
@@ -54,8 +57,8 @@
           "codec": "zstd-19",
           "input_bytes": 456000,
           "output_bytes": 109,
-          "encode_seconds": 0.0008814980001261574,
-          "decode_seconds": 0.00010884999983318266,
+          "encode_seconds": 0.0011080019994551549,
+          "decode_seconds": 0.00012041700028930791,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         },
@@ -63,8 +66,8 @@
           "codec": "xz-6",
           "input_bytes": 456000,
           "output_bytes": 252,
-          "encode_seconds": 0.007317335000152525,
-          "decode_seconds": 0.000283237000076042,
+          "encode_seconds": 0.01120801900015067,
+          "decode_seconds": 0.00024241699975391384,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         },
@@ -72,8 +75,8 @@
           "codec": "xz-9",
           "input_bytes": 456000,
           "output_bytes": 252,
-          "encode_seconds": 0.029767401999833965,
-          "decode_seconds": 0.0003518079997775203,
+          "encode_seconds": 0.034189120000519324,
+          "decode_seconds": 0.00037169799998082453,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         },
@@ -81,8 +84,17 @@
           "codec": "qcore-1",
           "input_bytes": 456000,
           "output_bytes": 584,
-          "encode_seconds": 0.270362658999602,
-          "decode_seconds": 0.021264170999984344,
+          "encode_seconds": 0.0034752689998640562,
+          "decode_seconds": 0.0005342169997675228,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 456000,
+          "output_bytes": 229,
+          "encode_seconds": 0.0073632559997349745,
+          "decode_seconds": 0.00043511000058060745,
           "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
           "verified": true
         }
@@ -93,14 +105,14 @@
       "input_bytes": 400000,
       "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
       "selected": "store",
-      "all_trials_wall_seconds_median": 1.360102685000129,
+      "all_trials_wall_seconds_median": 0.28661082700000406,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 400000,
           "output_bytes": 400000,
-          "encode_seconds": 8.020001587283332e-07,
-          "decode_seconds": 2.0000015865662135e-07,
+          "encode_seconds": 7.710004865657538e-07,
+          "decode_seconds": 2.599999788799323e-07,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         },
@@ -108,8 +120,8 @@
           "codec": "gzip-9",
           "input_bytes": 400000,
           "output_bytes": 400143,
-          "encode_seconds": 0.009027262999552477,
-          "decode_seconds": 0.00019468699974822812,
+          "encode_seconds": 0.008137255000292498,
+          "decode_seconds": 0.00022817599983682157,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         },
@@ -117,8 +129,8 @@
           "codec": "zstd-3",
           "input_bytes": 400000,
           "output_bytes": 400025,
-          "encode_seconds": 0.00016310999990309938,
-          "decode_seconds": 5.5021000207489124e-05,
+          "encode_seconds": 0.00014510400069411844,
+          "decode_seconds": 5.306799994286848e-05,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         },
@@ -126,8 +138,8 @@
           "codec": "zstd-19",
           "input_bytes": 400000,
           "output_bytes": 400025,
-          "encode_seconds": 0.018457440000020142,
-          "decode_seconds": 9.769400003278861e-05,
+          "encode_seconds": 0.018204535000222677,
+          "decode_seconds": 8.22710007923888e-05,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         },
@@ -135,8 +147,8 @@
           "codec": "xz-6",
           "input_bytes": 400000,
           "output_bytes": 400080,
-          "encode_seconds": 0.08378122000021904,
-          "decode_seconds": 0.00011633199983407394,
+          "encode_seconds": 0.08877184100037994,
+          "decode_seconds": 0.00012564500048029004,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         },
@@ -144,8 +156,8 @@
           "codec": "xz-9",
           "input_bytes": 400000,
           "output_bytes": 400080,
-          "encode_seconds": 0.12459177800019461,
-          "decode_seconds": 0.00022928699991098256,
+          "encode_seconds": 0.12818532599976606,
+          "decode_seconds": 0.00024423900049441727,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         },
@@ -153,8 +165,17 @@
           "codec": "qcore-1",
           "input_bytes": 400000,
           "output_bytes": 400143,
-          "encode_seconds": 1.1187569779999649,
-          "decode_seconds": 0.00045256600014909054,
+          "encode_seconds": 0.011362016999555635,
+          "decode_seconds": 0.00045929600037197815,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 400000,
+          "output_bytes": 400078,
+          "encode_seconds": 0.027187076999325654,
+          "decode_seconds": 0.0004334679997555213,
           "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
           "verified": true
         }
@@ -165,14 +186,14 @@
       "input_bytes": 1407,
       "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
       "selected": "zstd-3",
-      "all_trials_wall_seconds_median": 0.0270613399998183,
+      "all_trials_wall_seconds_median": 0.025286396999945282,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 1407,
           "output_bytes": 1407,
-          "encode_seconds": 2.6099996830453165e-07,
-          "decode_seconds": 1.599996721779462e-07,
+          "encode_seconds": 2.6999987312592566e-07,
+          "decode_seconds": 1.2100008461857215e-07,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         },
@@ -180,8 +201,8 @@
           "codec": "gzip-9",
           "input_bytes": 1407,
           "output_bytes": 120,
-          "encode_seconds": 2.9874000119889388e-05,
-          "decode_seconds": 2.5447000098210992e-05,
+          "encode_seconds": 2.895299985539168e-05,
+          "decode_seconds": 2.8031000510964077e-05,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         },
@@ -189,8 +210,8 @@
           "codec": "zstd-3",
           "input_bytes": 1407,
           "output_bytes": 109,
-          "encode_seconds": 4.472599994187476e-05,
-          "decode_seconds": 1.947900000232039e-05,
+          "encode_seconds": 4.3574000301305205e-05,
+          "decode_seconds": 1.8547000763646793e-05,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         },
@@ -198,8 +219,8 @@
           "codec": "zstd-19",
           "input_bytes": 1407,
           "output_bytes": 109,
-          "encode_seconds": 2.4855999981809873e-05,
-          "decode_seconds": 1.0754999948403565e-05,
+          "encode_seconds": 2.1382000340963714e-05,
+          "decode_seconds": 1.1006000022462104e-05,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         },
@@ -207,8 +228,8 @@
           "codec": "xz-6",
           "input_bytes": 1407,
           "output_bytes": 172,
-          "encode_seconds": 0.0008208290000766283,
-          "decode_seconds": 1.7907000255945604e-05,
+          "encode_seconds": 0.00084599599995272,
+          "decode_seconds": 1.6784999388619326e-05,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         },
@@ -216,8 +237,8 @@
           "codec": "xz-9",
           "input_bytes": 1407,
           "output_bytes": 172,
-          "encode_seconds": 0.024287094000101206,
-          "decode_seconds": 4.581699977279641e-05,
+          "encode_seconds": 0.023821308000151475,
+          "decode_seconds": 4.454600002645748e-05,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         },
@@ -225,8 +246,17 @@
           "codec": "qcore-1",
           "input_bytes": 1407,
           "output_bytes": 158,
-          "encode_seconds": 0.0015876170000410639,
-          "decode_seconds": 6.729899996571476e-05,
+          "encode_seconds": 0.0001274070000363281,
+          "decode_seconds": 1.5542999790341128e-05,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 1407,
+          "output_bytes": 158,
+          "encode_seconds": 5.549199977394892e-05,
+          "decode_seconds": 6.5289996200590394e-06,
           "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
           "verified": true
         }
@@ -237,14 +267,14 @@
       "input_bytes": 400000,
       "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
       "selected": "zstd-3",
-      "all_trials_wall_seconds_median": 0.8667849779999415,
+      "all_trials_wall_seconds_median": 0.16320326700042642,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 400000,
           "output_bytes": 400000,
-          "encode_seconds": 9.419995876669418e-07,
-          "decode_seconds": 4.0099985199049115e-07,
+          "encode_seconds": 4.90999809699133e-07,
+          "decode_seconds": 2.5000008463393897e-07,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         },
@@ -252,8 +282,8 @@
           "codec": "gzip-9",
           "input_bytes": 400000,
           "output_bytes": 201248,
-          "encode_seconds": 0.004650257999855967,
-          "decode_seconds": 0.00032013100008043693,
+          "encode_seconds": 0.004738069000268297,
+          "decode_seconds": 0.00025741900026332587,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         },
@@ -261,8 +291,8 @@
           "codec": "zstd-3",
           "input_bytes": 400000,
           "output_bytes": 200135,
-          "encode_seconds": 0.00020290799966460327,
-          "decode_seconds": 8.041899991440005e-05,
+          "encode_seconds": 0.00019426600010774564,
+          "decode_seconds": 7.63729995014728e-05,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         },
@@ -270,8 +300,8 @@
           "codec": "zstd-19",
           "input_bytes": 400000,
           "output_bytes": 200179,
-          "encode_seconds": 0.009026541999901383,
-          "decode_seconds": 0.00010470400002304814,
+          "encode_seconds": 0.00782446599987452,
+          "decode_seconds": 0.00011093400007666787,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         },
@@ -279,8 +309,8 @@
           "codec": "xz-6",
           "input_bytes": 400000,
           "output_bytes": 201076,
-          "encode_seconds": 0.044721404000029,
-          "decode_seconds": 0.0015379850001409068,
+          "encode_seconds": 0.04479647500011197,
+          "decode_seconds": 0.001521901999694819,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         },
@@ -288,8 +318,8 @@
           "codec": "xz-9",
           "input_bytes": 400000,
           "output_bytes": 201076,
-          "encode_seconds": 0.07951418899983764,
-          "decode_seconds": 0.0017961749999813037,
+          "encode_seconds": 0.07567227500021545,
+          "decode_seconds": 0.0015793660004419507,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         },
@@ -297,8 +327,17 @@
           "codec": "qcore-1",
           "input_bytes": 400000,
           "output_bytes": 200881,
-          "encode_seconds": 0.7045544339998742,
-          "decode_seconds": 0.0101585789998353,
+          "encode_seconds": 0.007205334999525803,
+          "decode_seconds": 0.0004055169993080199,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 400000,
+          "output_bytes": 200288,
+          "encode_seconds": 0.01689935299964418,
+          "decode_seconds": 0.0004955399999744259,
           "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
           "verified": true
         }
@@ -309,14 +348,14 @@
       "input_bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "selected": "store",
-      "all_trials_wall_seconds_median": 0.02635257600013574,
+      "all_trials_wall_seconds_median": 0.026453571999809355,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 0,
           "output_bytes": 0,
-          "encode_seconds": 2.800002221192699e-07,
-          "decode_seconds": 2.0000015865662135e-07,
+          "encode_seconds": 3.210006980225444e-07,
+          "decode_seconds": 1.4999932318460196e-07,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         },
@@ -324,8 +363,8 @@
           "codec": "gzip-9",
           "input_bytes": 0,
           "output_bytes": 20,
-          "encode_seconds": 1.7675999970379053e-05,
-          "decode_seconds": 2.5847999950201483e-05,
+          "encode_seconds": 2.00100002984982e-05,
+          "decode_seconds": 2.320400017197244e-05,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         },
@@ -333,8 +372,8 @@
           "codec": "zstd-3",
           "input_bytes": 0,
           "output_bytes": 13,
-          "encode_seconds": 3.4741000035865e-05,
-          "decode_seconds": 1.3841000054526376e-05,
+          "encode_seconds": 3.359000038472004e-05,
+          "decode_seconds": 1.3138999747752678e-05,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         },
@@ -342,8 +381,8 @@
           "codec": "zstd-19",
           "input_bytes": 0,
           "output_bytes": 13,
-          "encode_seconds": 1.3339999895833898e-05,
-          "decode_seconds": 9.154000053968048e-06,
+          "encode_seconds": 1.2217999938002322e-05,
+          "decode_seconds": 9.04300031834282e-06,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         },
@@ -351,8 +390,8 @@
           "codec": "xz-6",
           "input_bytes": 0,
           "output_bytes": 32,
-          "encode_seconds": 0.0007612409999637748,
-          "decode_seconds": 1.6074000086518936e-05,
+          "encode_seconds": 0.0007846160006010905,
+          "decode_seconds": 7.851999725971837e-06,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         },
@@ -360,8 +399,8 @@
           "codec": "xz-9",
           "input_bytes": 0,
           "output_bytes": 32,
-          "encode_seconds": 0.02510176399982811,
-          "decode_seconds": 2.541699996072566e-05,
+          "encode_seconds": 0.025464494000516424,
+          "decode_seconds": 2.2803999854659196e-05,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         },
@@ -369,8 +408,17 @@
           "codec": "qcore-1",
           "input_bytes": 0,
           "output_bytes": 52,
-          "encode_seconds": 1.3128999853506684e-05,
-          "decode_seconds": 7.2900002123788e-06,
+          "encode_seconds": 1.6133999451994896e-05,
+          "decode_seconds": 8.673000593262259e-06,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 0,
+          "output_bytes": 52,
+          "encode_seconds": 2.013000084843952e-06,
+          "decode_seconds": 2.4230002964031883e-06,
           "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "verified": true
         }
@@ -380,15 +428,15 @@
       "name": "synthetic-numeric-ramp",
       "input_bytes": 131072,
       "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
-      "selected": "qcore-1",
-      "all_trials_wall_seconds_median": 0.0759656229997745,
+      "selected": "qcore-2",
+      "all_trials_wall_seconds_median": 0.03696650199981377,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 131072,
           "output_bytes": 131072,
-          "encode_seconds": 6.410000423784368e-07,
-          "decode_seconds": 4.599996827892028e-07,
+          "encode_seconds": 4.3100044422317296e-07,
+          "decode_seconds": 2.599999788799323e-07,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         },
@@ -396,8 +444,8 @@
           "codec": "gzip-9",
           "input_bytes": 131072,
           "output_bytes": 851,
-          "encode_seconds": 0.0003144029997201869,
-          "decode_seconds": 0.00010962099986500107,
+          "encode_seconds": 0.0003547530004652799,
+          "decode_seconds": 0.00010029800068878103,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         },
@@ -405,8 +453,8 @@
           "codec": "zstd-3",
           "input_bytes": 131072,
           "output_bytes": 283,
-          "encode_seconds": 7.220599991342169e-05,
-          "decode_seconds": 3.115600020464626e-05,
+          "encode_seconds": 0.00015489799989154562,
+          "decode_seconds": 3.1286999728763476e-05,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         },
@@ -414,8 +462,8 @@
           "codec": "zstd-19",
           "input_bytes": 131072,
           "output_bytes": 283,
-          "encode_seconds": 0.0002549349997025274,
-          "decode_seconds": 2.549800001361291e-05,
+          "encode_seconds": 0.0002451009995638742,
+          "decode_seconds": 2.4266000764328055e-05,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         },
@@ -423,8 +471,8 @@
           "codec": "xz-6",
           "input_bytes": 131072,
           "output_bytes": 396,
-          "encode_seconds": 0.002724322000176471,
-          "decode_seconds": 7.639300019945949e-05,
+          "encode_seconds": 0.0035103909995086724,
+          "decode_seconds": 8.115000036923448e-05,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         },
@@ -432,8 +480,8 @@
           "codec": "xz-9",
           "input_bytes": 131072,
           "output_bytes": 396,
-          "encode_seconds": 0.02452164999976958,
-          "decode_seconds": 0.0001223500003106892,
+          "encode_seconds": 0.02836679399933928,
+          "decode_seconds": 0.000171432999195531,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         },
@@ -441,8 +489,17 @@
           "codec": "qcore-1",
           "input_bytes": 131072,
           "output_bytes": 90,
-          "encode_seconds": 0.04018459200005964,
-          "decode_seconds": 0.006147945000066102,
+          "encode_seconds": 0.0007648259997949935,
+          "decode_seconds": 0.00023299400072573917,
+          "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 131072,
+          "output_bytes": 78,
+          "encode_seconds": 0.0019041549994653906,
+          "decode_seconds": 0.00020024500008730683,
           "sha256": "377c7b0cc229f4705670d63d544c275b663df6e8c831b09846a5c48cca08b848",
           "verified": true
         }
@@ -453,14 +510,14 @@
       "input_bytes": 262144,
       "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
       "selected": "zstd-3",
-      "all_trials_wall_seconds_median": 0.3054043299998739,
+      "all_trials_wall_seconds_median": 0.10111601399967185,
       "trials": [
         {
           "codec": "store",
           "input_bytes": 262144,
           "output_bytes": 262144,
-          "encode_seconds": 6.509999366244301e-07,
-          "decode_seconds": 1.9999970390927047e-07,
+          "encode_seconds": 5.010006134398282e-07,
+          "decode_seconds": 2.709994078031741e-07,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         },
@@ -468,8 +525,8 @@
           "codec": "gzip-9",
           "input_bytes": 262144,
           "output_bytes": 262242,
-          "encode_seconds": 0.005596623000201362,
-          "decode_seconds": 0.0001760899999680987,
+          "encode_seconds": 0.005360306000511628,
+          "decode_seconds": 0.00014313100018625846,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         },
@@ -477,8 +534,8 @@
           "codec": "zstd-3",
           "input_bytes": 262144,
           "output_bytes": 65589,
-          "encode_seconds": 0.00012328100001468556,
-          "decode_seconds": 5.1094999889755854e-05,
+          "encode_seconds": 9.931600015988806e-05,
+          "decode_seconds": 4.715999966720119e-05,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         },
@@ -486,8 +543,8 @@
           "codec": "zstd-19",
           "input_bytes": 262144,
           "output_bytes": 65614,
-          "encode_seconds": 0.003931781000119372,
-          "decode_seconds": 6.842099992354633e-05,
+          "encode_seconds": 0.00357286300004489,
+          "decode_seconds": 4.5277000026544556e-05,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         },
@@ -495,8 +552,8 @@
           "codec": "xz-6",
           "input_bytes": 262144,
           "output_bytes": 65768,
-          "encode_seconds": 0.025169939000079466,
-          "decode_seconds": 0.00023930199995447765,
+          "encode_seconds": 0.02027431499936938,
+          "decode_seconds": 0.00027234099979978055,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         },
@@ -504,8 +561,8 @@
           "codec": "xz-9",
           "input_bytes": 262144,
           "output_bytes": 65768,
-          "encode_seconds": 0.05787955300002068,
-          "decode_seconds": 0.0003522490001159895,
+          "encode_seconds": 0.05308928099930199,
+          "decode_seconds": 0.0003562640004020068,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         },
@@ -513,8 +570,17 @@
           "codec": "qcore-1",
           "input_bytes": 262144,
           "output_bytes": 65652,
-          "encode_seconds": 0.20561537999992652,
-          "decode_seconds": 0.00034268500030520954,
+          "encode_seconds": 0.0023178450001068995,
+          "decode_seconds": 0.0003337910002301214,
+          "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
+          "verified": true
+        },
+        {
+          "codec": "qcore-2",
+          "input_bytes": 262144,
+          "output_bytes": 65652,
+          "encode_seconds": 0.011905698000191478,
+          "decode_seconds": 0.000375063000319642,
           "sha256": "86542642d4113ce237d7abbde05edaa3828ad6dd009814252b7a983e60fd8a32",
           "verified": true
         }

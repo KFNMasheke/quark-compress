@@ -1,6 +1,6 @@
 # Security policy
 
-Quark Compress 0.2 is an experimental local compression project, not a reviewed
+Quark Compress 0.4 is an experimental local compression project, not a reviewed
 archive extractor, backup product, or encryption tool.
 
 The CLI produces standard compressed streams or QCore `.qkc` frames. Its 32 MiB
@@ -11,7 +11,11 @@ malformed-input tests are not a substitute for independent parser review or
 coverage-guided fuzzing. Do not expose the decoder as a public service.
 
 QCore CRC32/SHA-256 checks detect corruption but do not authenticate a sender.
-The project provides no encryption. Keep originals and independent backups
+The optional C extension is tested with cross-decoder cases and Linux
+AddressSanitizer/UndefinedBehaviorSanitizer checks; these are finite tests,
+not independent review or proof of safety. QKC2 additionally bounds factored
+field expansion and accepts only two explicit block sizes. QKC1 decoding stays
+available. The project provides no encryption. Keep originals and independent backups
 until restoration has been verified. Interrupted writes may leave partial files.
 
 Use this repository's private vulnerability reporting option if enabled. If

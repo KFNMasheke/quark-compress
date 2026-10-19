@@ -10,6 +10,11 @@ python -m unittest discover -s tests -v
 python benchmark.py
 ```
 
+Run both the native and `QUARK_PURE_PYTHON=1` test suites after codec changes.
+Native changes also require `python tools/sanitize.py` on Linux/GCC. See
+`benchmarks/README.md` for verified corpus downloads and isolated benchmarks.
+Preserve QKC1 decoding; incompatible formats must use a new magic/version.
+
 Include exact round-trip tests for compression changes and regression tests for
 parser/output safety changes. Preserve counterexamples and upstream notices.
 Never commit private support tickets, customer documents, financial records,

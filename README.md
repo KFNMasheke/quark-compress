@@ -8,7 +8,7 @@
 An open-source lossless compression project with **QCore**, an independent
 experimental codec, and a lab comparing it against established engines.
 
-Working project by Kaziwale Masheke. Version 0.2 is a research implementation,
+Working project by Kaziwale Masheke. Version 0.4 is a research implementation,
 not a finished desktop archiver. QCore implements established techniques in
 original code; it does not claim a novel algorithm or general superiority.
 
@@ -16,6 +16,10 @@ original code; it does not claim a novel algorithm or general superiority.
 
 - QCore: LZ77 matching, canonical Huffman coding, reversible byte deltas,
   exact duplicate-block references, raw fallback, CRC32 and SHA-256 verification.
+- QCore v2: separately coded token fields and complete-frame selection between
+  64 KiB and 256 KiB blocks, with compact Huffman model headers.
+  QKC1 files remain readable.
+- Optional original C acceleration, with a pure-Python reference fallback.
 - Trials of QCore, Zstandard 3/19, XZ/LZMA2 6/9, gzip 9, and raw storage.
 - Exhaustive smallest-output selection, including a no-compression fallback.
 - Byte-for-byte restoration checks, SHA-256 reporting, encode/decode timings.
@@ -37,16 +41,21 @@ Python 3.11 or newer:
 ```sh
 git clone https://github.com/KFNMasheke/quark-compress.git
 cd quark-compress
-python -m pip install .
+python -m pip install -e .
 python -m unittest discover -s tests -v
 python -m quarkcompress analyze example.txt
 python -m quarkcompress compress example.txt --output example
 python -m quarkcompress compress example.txt --codec zstd-3 --output quick
-python -m quarkcompress compress example.txt --codec qcore-1 --output packed
+python -m quarkcompress compress example.txt --codec qcore-2 --output packed
 python -m quarkcompress inspect packed.qkc
 python -m quarkcompress decompress packed.qkc --output restored.txt
 python benchmark.py
 ```
+
+With a C compiler and Python development headers, installation builds the
+accelerator. Confirm with `python -c "from quarkcompress.qcore import BACKEND; print(BACKEND)"`.
+Without a working compiler, the package falls back to Python. To force the
+reference backend for comparisons, set `QUARK_PURE_PYTHON=1` before launching.
 
 The output suffix is added automatically, e.g. `example.xz`. Inputs remain
 unchanged. Extract with an appropriate standard XZ, gzip, or Zstandard tool.
@@ -57,8 +66,8 @@ and reports the selected method for each block.
 ## QCore engine
 
 `quarkcompress/qcore.py` implements the codec directly; it does not delegate
-compression to Zstd, XZ, gzip or Deflate. It chooses transformations per 64 KiB
-block and records the decisions in a versioned frame. The parent application
+compression to Zstd, XZ, gzip or Deflate. It chooses block size and transformations
+and records the decisions in a versioned frame. The parent application
 can still choose another engine when it produces a smaller output.
 
 ```python
@@ -69,9 +78,20 @@ packed = compress(original)
 assert decompress(packed) == original
 ```
 
-Read the [format specification](docs/QCORE_FORMAT.md),
+Read the [v2 format specification](docs/QCORE_V2_FORMAT.md),
+[retained v1 specification](docs/QCORE_FORMAT.md),
 [architecture decision](docs/ADR-001-QCORE.md), and
-[measured smoke results](docs/QCORE_RESULTS.md).
+[measured results](docs/QCORE_RESULTS.md).
+
+## Benchmarking against established engines
+
+The [Canterbury comparison](docs/QCORE_RESULTS.md) covers all 11 verified files,
+including text, source code, a spreadsheet, a bitmap and a binary sample.
+It measures QCore alongside gzip, Zstd-3/19/22, XZ-9/9e and bzip2-9 in separate
+processes, with exact restoration and peak-RSS reporting.
+See [reproduction instructions](benchmarks/README.md) and
+[explicit parity gates](docs/PARITY_GATES.md). These results do not establish
+general parity or include a native 7-Zip comparison.
 
 ## Current boundaries
 
@@ -86,7 +106,8 @@ incomplete file; crash-safe atomic publication is a future gate.
 Synthetic smoke results are in `results/smoke.json`; reproduce with `benchmark.py`.
 These are synthetic local checks, not evidence of general superiority over
 Zstd, XZ, 7-Zip or game repackers. QCore's Python implementation is expected
-to be slower than native engines; the results report losses as well as wins.
+to be slower than native engines; an optional C backend accelerates its hot
+loops. The results report losses as well as wins.
 The cross-platform CI workflow reports its status through the badge above.
 
 ## Direction

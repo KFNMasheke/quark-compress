@@ -1,0 +1,85 @@
+{
+  "source": "Canterbury corpus, via zlib-ng/corpora mirror",
+  "upstream": "https://corpus.canterbury.ac.nz/",
+  "mirror_commit": "fd01e05b0e8d1736e7178427297f3790402d4bf4",
+  "redistribution": "Data not bundled; consult original corpus terms before redistributing.",
+  "files": [
+    {
+      "name": "alice29.txt",
+      "bytes": 148481,
+      "sha256": "4cbce86540bcef439f901c89de486d295aa3848e8c4cbc911561054479e73960",
+      "git_blob_sha": "f1156864c532cad5acd454c8383d3cdf07d5bb96",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/alice29.txt"
+    },
+    {
+      "name": "asyoulik.txt",
+      "bytes": 125179,
+      "sha256": "eaa3526fe53859f34ecdf255712f9ecf0b2c903451d4755b2edaa2e2599cb0fc",
+      "git_blob_sha": "88dc7b60fe2afeeedd1ba1bb5d4229b17b29b041",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/asyoulik.txt"
+    },
+    {
+      "name": "cp.html",
+      "bytes": 24603,
+      "sha256": "e0cd21cef5b6c4069461e949be100080c3ce887de6f1dd8626c480528efaaf61",
+      "git_blob_sha": "1d0ca37eb97cfd01aba1df2451c89de7988b45cc",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/cp.html"
+    },
+    {
+      "name": "fields.c",
+      "bytes": 11150,
+      "sha256": "85d73e354cc50cec76cb5a50537cf8dc035f8cbb8480f9e1cbe2f7d6c23393c7",
+      "git_blob_sha": "63cdc030a1ff12ce26e2d878976462a91f2ba505",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/fields.c"
+    },
+    {
+      "name": "grammar.lsp",
+      "bytes": 3721,
+      "sha256": "1b0805dfc0ae706b35aac2bb4e15f02485efd24dda5dbd29de7b2f84d1a88c15",
+      "git_blob_sha": "c60a993889ada422db0a5c76a1a475a301b75ecb",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/grammar.lsp"
+    },
+    {
+      "name": "kennedy.xls",
+      "bytes": 1029744,
+      "sha256": "9af47239ca29dfe20e633f80bbbb9a4cc9783d0803d7b2b5626f42e4c3790420",
+      "git_blob_sha": "9a851154254d2902e51ed9da28966a7f13c58ff6",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/kennedy.xls"
+    },
+    {
+      "name": "lcet10.txt",
+      "bytes": 419235,
+      "sha256": "938e69e61b3411d8a9e2e630f4265000d810f3dbf66bac58cac19493753526ec",
+      "git_blob_sha": "26b187d0482fbf6e2dd84cc1a6a9dc293a6400a7",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/lcet10.txt"
+    },
+    {
+      "name": "plrabn12.txt",
+      "bytes": 471162,
+      "sha256": "7f498b78f161d81bf4e121e80fa052b491babb64de44b6364304a117db5fbbb3",
+      "git_blob_sha": "dfa72b6d0921197ba57e7cd704f9c92e4dcb6003",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/plrabn12.txt"
+    },
+    {
+      "name": "ptt5",
+      "bytes": 513216,
+      "sha256": "0ec3a75089bb52342813496b17e51377bc9eba3cb519a444d67025354841d650",
+      "git_blob_sha": "bdd7f3658f31d349d57bab0f79ec144e86d54dba",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/ptt5"
+    },
+    {
+      "name": "sum",
+      "bytes": 38240,
+      "sha256": "ee5733cd76ecc2f9d8ff156adc3c02a7a851051dcf43a2d56ff4ee4ff606bdb3",
+      "git_blob_sha": "758fd815aa4b2269804ca8a218397cc46e0aed01",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/sum"
+    },
+    {
+      "name": "xargs.1",
+      "bytes": 4227,
+      "sha256": "c58aeb5d2d1e12751d47e7412b45784405fc30a5671b03d480fa05776e183619",
+      "git_blob_sha": "a9f39a731163d97cd035518530164715ffac258c",
+      "url": "https://raw.githubusercontent.com/zlib-ng/corpora/fd01e05b0e8d1736e7178427297f3790402d4bf4/canterbury/xargs.1"
+    }
+  ]
+}
