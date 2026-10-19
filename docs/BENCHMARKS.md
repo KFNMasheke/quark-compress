@@ -22,7 +22,9 @@ compressed images/video, embedded compressed streams, duplicate project versions
 random bytes, and mixed folders. Include sample-selection failures. Hold out
 datasets from planner tuning.
 
-Current `benchmark.py` runs five deterministic synthetic inputs, one warm-up
+Current `benchmark.py` runs seven deterministic synthetic inputs, one warm-up
 and three repetitions, with byte-exact verification for every codec. It measures
 in-memory encoding/decoding only, excludes file I/O and does not measure RSS.
-It is a smoke test, not a publishable performance study.
+It is a smoke test, not a publishable performance study. QCore output includes
+frame, checksum and block metadata; standard codec outputs are single streams,
+not directory archives. No native 7-Zip result is inferred from Python XZ.

@@ -5,24 +5,28 @@
 [![Tests](https://github.com/KFNMasheke/quark-compress/actions/workflows/test.yml/badge.svg)](https://github.com/KFNMasheke/quark-compress/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-An open-source lossless compression lab exploring adaptive codec selection,
-with reproducible benchmarks and byte-exact restoration checks.
+An open-source lossless compression project with **QCore**, an independent
+experimental codec, and a lab comparing it against established engines.
 
-Working project by Kaziwale Masheke. Milestone 0.1 is a compression lab,
-not a finished desktop archiver or a new compression algorithm.
+Working project by Kaziwale Masheke. Version 0.2 is a research implementation,
+not a finished desktop archiver. QCore implements established techniques in
+original code; it does not claim a novel algorithm or general superiority.
 
 ## What works today
 
-- Trials of Zstandard 3/19, XZ/LZMA2 6/9, gzip 9, and raw storage.
+- QCore: LZ77 matching, canonical Huffman coding, reversible byte deltas,
+  exact duplicate-block references, raw fallback, CRC32 and SHA-256 verification.
+- Trials of QCore, Zstandard 3/19, XZ/LZMA2 6/9, gzip 9, and raw storage.
 - Exhaustive smallest-output selection, including a no-compression fallback.
 - Byte-for-byte restoration checks, SHA-256 reporting, encode/decode timings.
 - Standard `.zst`, `.xz`, `.gz` outputs; `.raw` means an unchanged copy.
+- QCore `.qkc` encoding, bounded decoding and verified block inspection.
 - Exclusive output creation: existing files and symlinks are not overwritten.
-- Unit tests and a proposed Windows/Linux/macOS CI matrix.
+- Unit tests and a Windows/Linux/macOS CI matrix.
 
 The exhaustive selector compresses the entire input with every candidate. This
 gives a smallest-size baseline among those candidates, at substantial CPU cost.
-It is not yet a smart predictor, deduplicating archiver, or improvement to Zstd.
+It is not yet a smart predictor, directory archiver, or improvement to Zstd.
 Trial timings include codec work; total selection wall time includes all trials
 and verification. Reports explicitly distinguish these quantities.
 
@@ -38,24 +42,51 @@ python -m unittest discover -s tests -v
 python -m quarkcompress analyze example.txt
 python -m quarkcompress compress example.txt --output example
 python -m quarkcompress compress example.txt --codec zstd-3 --output quick
+python -m quarkcompress compress example.txt --codec qcore-1 --output packed
+python -m quarkcompress inspect packed.qkc
+python -m quarkcompress decompress packed.qkc --output restored.txt
 python benchmark.py
 ```
 
 The output suffix is added automatically, e.g. `example.xz`. Inputs remain
 unchanged. Extract with an appropriate standard XZ, gzip, or Zstandard tool.
-The lab has no untrusted archive extraction command.
+The `decompress` command accepts QCore frames only. It verifies the full frame
+before creating the output exclusively. Inspect performs a full verified decode
+and reports the selected method for each block.
+
+## QCore engine
+
+`quarkcompress/qcore.py` implements the codec directly; it does not delegate
+compression to Zstd, XZ, gzip or Deflate. It chooses transformations per 64 KiB
+block and records the decisions in a versioned frame. The parent application
+can still choose another engine when it produces a smaller output.
+
+```python
+from quarkcompress.qcore import compress, decompress
+
+original = b"Community mapping data\n" * 1000
+packed = compress(original)
+assert decompress(packed) == original
+```
+
+Read the [format specification](docs/QCORE_FORMAT.md),
+[architecture decision](docs/ADR-001-QCORE.md), and
+[measured smoke results](docs/QCORE_RESULTS.md).
 
 ## Current boundaries
 
 32 MiB input limit per file; whole-file buffers; codec working memory is additional
 and may substantially exceed input size. No enforced RAM budget or peak-RSS
 measurement. No directory archives, permissions restoration, resume, GUI,
-precompression, encryption, content-defined deduplication, or mobile app yet.
+embedded-stream precompression, encryption, content-defined deduplication,
+or mobile app yet. QCore's fixed-block references operate within a single file.
 Files must be stable while being read. Interrupted output writes can leave an
 incomplete file; crash-safe atomic publication is a future gate.
 
 Synthetic smoke results are in `results/smoke.json`; reproduce with `benchmark.py`.
-These are local checks, not evidence of beating 7-Zip or game repackers.
+These are synthetic local checks, not evidence of general superiority over
+Zstd, XZ, 7-Zip or game repackers. QCore's Python implementation is expected
+to be slower than native engines; the results report losses as well as wins.
 The cross-platform CI workflow reports its status through the badge above.
 
 ## Direction

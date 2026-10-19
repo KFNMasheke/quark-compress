@@ -1,11 +1,19 @@
 # Flagship delivery roadmap
 
-## 0.1: Evidence foundation (implemented locally)
+## 0.1: Evidence foundation (published)
 
 Bounded codec trials, standard-format output, exhaustive size oracle, synthetic
-smoke benchmark, eight unit tests, and CI configuration. No public release yet.
+smoke benchmark, eight unit tests, and CI configuration. Initial cross-platform
+CI passed. No packaged desktop release yet.
 
-## 0.2: Representative benchmarks
+## 0.2: QCore experimental codec (implemented)
+
+Independent LZ77 and canonical Huffman implementations, reversible byte deltas,
+fixed-block references, a specified `.qkc` format, bounded decoding, corruption
+checks, CLI integration, malformed-input tests and updated synthetic benchmarks.
+This establishes a reference engine; it does not establish performance leadership.
+
+## 0.3: Representative benchmarks
 
 Fetch version-pinned Silesia and Canterbury corpora, add licensed public GIS and
 project-version datasets, record corpus hashes and licenses. Add native 7-Zip,
@@ -15,7 +23,7 @@ time, peak RSS, CPU and restore checks. Publish regressions as prominently as wi
 Exit: reproducible size/time/RAM results on at least three workload families,
 without an unsupported claim of general superiority.
 
-## 0.3: Adaptive engine
+## 0.4: Adaptive engine
 
 Multi-region sampling, held-out evaluation, compressibility estimation, early
 abort, explicit size/speed objectives, and memory-aware job scheduling.
@@ -24,7 +32,7 @@ Research target: within 5% of the exhaustive oracle's size while reducing
 selection overhead by at least 80% on held-out workloads. These are unproven
 targets; revise or reject the design if measurements fail them.
 
-## 0.4: Directory archive and deduplication
+## 0.5: Directory archive and deduplication
 
 Versioned manifest schema, content-defined chunks, checksums, similarity grouping,
 bounded streaming, deterministic manifests, extraction budgets, path safety,
@@ -35,13 +43,13 @@ Exit: exact content recovery and defined metadata behavior, fuzzed parsers,
 corruption/truncation handling, no path traversal or unintended overwrite, and
 bounded extraction memory/disk usage. Metadata support must be explicit.
 
-## 0.5: Reversible preprocessing
+## 0.6: Embedded-stream preprocessing
 
 Sandboxed adapters for supported streams, bounded recursion, recovery metadata,
 and content hashes. Never install arbitrary codecs from archive metadata.
 Test encoder/version dependence and portability before enabling a transform.
 
-## 0.6: Desktop product
+## 0.7: Desktop product
 
 Profile before deciding whether to move orchestration to Rust/C++. Evaluate
 Tauri for a desktop UI: drop files, size/time/RAM controls, queue, cancellation,

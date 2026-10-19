@@ -10,6 +10,7 @@ import sys
 import zlib
 
 import zstandard
+from quarkcompress import __version__
 from quarkcompress.core import select
 
 rng = random.Random(20261019)
@@ -20,9 +21,13 @@ corpus = {
     "already-deflated": zlib.compress(text, 9),
     "mixed": text[:200000] + rng.randbytes(200000),
     "empty": b"",
+    "synthetic-numeric-ramp": bytes((i * 7) & 255 for i in range(131072)),
+    "synthetic-duplicate-blocks": random.Random(61).randbytes(65536) * 4,
 }
-report = {"notice": "Synthetic smoke test. No public corpus, 7-Zip, preprocessing or deduplication tested. In-memory timings exclude disk I/O. No peak-memory measurement.",
+report = {"notice": "Synthetic smoke test, including experimental QCore v1. No public corpus, native 7-Zip, or external preprocessing tested. In-memory timings exclude disk I/O. No peak-memory measurement. QCore frame overhead is included; standard codec outputs are single streams, not directory archives.",
           "environment": {"python": sys.version, "platform": platform.platform(),
+                          "quark_compress": __version__,
+                          "qcore_source_sha256": hashlib.sha256(Path("quarkcompress/qcore.py").read_bytes()).hexdigest(),
                           "zstandard_binding": zstandard.__version__,
                           "zstd": zstandard.ZSTD_VERSION, "zlib": zlib.ZLIB_RUNTIME_VERSION},
           "repetitions": 3, "warmups": 1, "files": []}

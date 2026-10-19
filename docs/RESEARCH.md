@@ -2,7 +2,8 @@
 
 Reviewed 19 October 2026 through primary repository pages and documentation.
 This is a repository/documentation review, not a complete source audit. No upstream
-repository has been forked or patched in this milestone.
+repository has been forked or patched. QCore was subsequently implemented as an
+independent research codec; it does not incorporate code from these repositories.
 
 | Repository | Existing capability | Role in Quark Compress |
 |---|---|---|
@@ -42,7 +43,9 @@ implementation and useful workflow, not the mere combination of familiar ideas.
 5. GIS-specific reversible transforms for suitable numeric data. Start with known
    public datasets and compare against their native compressed formats.
 
-These are hypotheses. No drastic performance improvement is established yet.
+These remain research hypotheses. QCore adds an independent codec, with
+synthetic results in QCORE_RESULTS.md. No drastic general improvement is
+established yet.
 
 ## Dependency and licensing boundary
 
