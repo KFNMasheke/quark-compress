@@ -1,0 +1,333 @@
+{
+  "notice": "Synthetic smoke test. No public corpus, 7-Zip, preprocessing or deduplication tested. In-memory timings exclude disk I/O. No peak-memory measurement.",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "zstandard_binding": "0.25.0",
+    "zstd": [
+      1,
+      5,
+      7
+    ],
+    "zlib": "1.3.2"
+  },
+  "repetitions": 3,
+  "warmups": 1,
+  "files": [
+    {
+      "name": "repetitive-json",
+      "input_bytes": 456000,
+      "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+      "selected": "zstd-19",
+      "all_trials_wall_seconds_median": 0.05838943399976415,
+      "trials": [
+        {
+          "codec": "store",
+          "input_bytes": 456000,
+          "output_bytes": 456000,
+          "encode_seconds": 7.109997568477411e-07,
+          "decode_seconds": 3.999998625658918e-07,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 456000,
+          "output_bytes": 1419,
+          "encode_seconds": 0.0011029830002371455,
+          "decode_seconds": 0.00027840000029755174,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 456000,
+          "output_bytes": 119,
+          "encode_seconds": 0.00015064199988046312,
+          "decode_seconds": 0.00012411299985615187,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 456000,
+          "output_bytes": 109,
+          "encode_seconds": 0.001145545999861497,
+          "decode_seconds": 0.0001101830002880888,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        },
+        {
+          "codec": "xz-6",
+          "input_bytes": 456000,
+          "output_bytes": 252,
+          "encode_seconds": 0.010633290999976452,
+          "decode_seconds": 0.000282356000298023,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 456000,
+          "output_bytes": 252,
+          "encode_seconds": 0.0381820110001172,
+          "decode_seconds": 0.0004768220001096779,
+          "sha256": "dac026a2129f1c256f48de39feb1245aaf076f4737310bdc17f09582b8ca5d1e",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "random-binary",
+      "input_bytes": 400000,
+      "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+      "selected": "store",
+      "all_trials_wall_seconds_median": 0.23843496800009234,
+      "trials": [
+        {
+          "codec": "store",
+          "input_bytes": 400000,
+          "output_bytes": 400000,
+          "encode_seconds": 5.610004336631391e-07,
+          "decode_seconds": 2.70999862550525e-07,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 400000,
+          "output_bytes": 400143,
+          "encode_seconds": 0.008430839999618911,
+          "decode_seconds": 0.00019585900008678436,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 400000,
+          "output_bytes": 400025,
+          "encode_seconds": 0.00015643100005036104,
+          "decode_seconds": 5.5112000154622365e-05,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 400000,
+          "output_bytes": 400025,
+          "encode_seconds": 0.019220942000174546,
+          "decode_seconds": 0.00014449199989030603,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        },
+        {
+          "codec": "xz-6",
+          "input_bytes": 400000,
+          "output_bytes": 400080,
+          "encode_seconds": 0.0874341359999562,
+          "decode_seconds": 0.00012841900024795905,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 400000,
+          "output_bytes": 400080,
+          "encode_seconds": 0.12092204700002185,
+          "decode_seconds": 0.00026905599997917307,
+          "sha256": "d0dbee1b04e5c93e164c4993e5599395d62665c29bc6a2940530aeb693580429",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "already-deflated",
+      "input_bytes": 1407,
+      "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+      "selected": "zstd-3",
+      "all_trials_wall_seconds_median": 0.02250191100029042,
+      "trials": [
+        {
+          "codec": "store",
+          "input_bytes": 1407,
+          "output_bytes": 1407,
+          "encode_seconds": 5.110000529384706e-07,
+          "decode_seconds": 1.4999977793195285e-07,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 1407,
+          "output_bytes": 120,
+          "encode_seconds": 2.943299978142022e-05,
+          "decode_seconds": 2.8170999939902686e-05,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 1407,
+          "output_bytes": 109,
+          "encode_seconds": 4.482600024857675e-05,
+          "decode_seconds": 1.8638000256032683e-05,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 1407,
+          "output_bytes": 109,
+          "encode_seconds": 2.368400009800098e-05,
+          "decode_seconds": 1.068499977918691e-05,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        },
+        {
+          "codec": "xz-6",
+          "input_bytes": 1407,
+          "output_bytes": 172,
+          "encode_seconds": 0.0007109869998203067,
+          "decode_seconds": 1.6383999991376186e-05,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 1407,
+          "output_bytes": 172,
+          "encode_seconds": 0.02153756199959389,
+          "decode_seconds": 3.9367999761452666e-05,
+          "sha256": "9acf6f2631a06f25d3b38cc5e20be4bb6e349cfc2c4391e72da34428573469b1",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "mixed",
+      "input_bytes": 400000,
+      "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+      "selected": "zstd-3",
+      "all_trials_wall_seconds_median": 0.16004853899994487,
+      "trials": [
+        {
+          "codec": "store",
+          "input_bytes": 400000,
+          "output_bytes": 400000,
+          "encode_seconds": 6.81000074109761e-07,
+          "decode_seconds": 3.210002432751935e-07,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 400000,
+          "output_bytes": 201248,
+          "encode_seconds": 0.005763673999808816,
+          "decode_seconds": 0.0003374259999873175,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 400000,
+          "output_bytes": 200135,
+          "encode_seconds": 0.00030915600018488476,
+          "decode_seconds": 9.62219996836211e-05,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 400000,
+          "output_bytes": 200179,
+          "encode_seconds": 0.010808059999817488,
+          "decode_seconds": 0.00012479299994083703,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        },
+        {
+          "codec": "xz-6",
+          "input_bytes": 400000,
+          "output_bytes": 201076,
+          "encode_seconds": 0.05097483100007594,
+          "decode_seconds": 0.0017895239998324541,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 400000,
+          "output_bytes": 201076,
+          "encode_seconds": 0.08632300099998247,
+          "decode_seconds": 0.0019090799996774876,
+          "sha256": "7f759f792358f6f408d327edb1fe2da1d5fa8926d722c5e6105e336d5694d36d",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "input_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "selected": "store",
+      "all_trials_wall_seconds_median": 0.022917774000234203,
+      "trials": [
+        {
+          "codec": "store",
+          "input_bytes": 0,
+          "output_bytes": 0,
+          "encode_seconds": 4.7100002120714635e-07,
+          "decode_seconds": 1.0999974620062858e-07,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "codec": "gzip-9",
+          "input_bytes": 0,
+          "output_bytes": 20,
+          "encode_seconds": 1.501199994891067e-05,
+          "decode_seconds": 2.3964999854797497e-05,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "codec": "zstd-3",
+          "input_bytes": 0,
+          "output_bytes": 13,
+          "encode_seconds": 3.2958000247163e-05,
+          "decode_seconds": 1.3649999800691148e-05,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "codec": "zstd-19",
+          "input_bytes": 0,
+          "output_bytes": 13,
+          "encode_seconds": 1.226799986397964e-05,
+          "decode_seconds": 9.18300020202878e-06,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "codec": "xz-6",
+          "input_bytes": 0,
+          "output_bytes": 32,
+          "encode_seconds": 0.0006142040001577698,
+          "decode_seconds": 7.1710001066094264e-06,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        },
+        {
+          "codec": "xz-9",
+          "input_bytes": 0,
+          "output_bytes": 32,
+          "encode_seconds": 0.022114549999969313,
+          "decode_seconds": 1.752599973769975e-05,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "verified": true
+        }
+      ]
+    }
+  ]
+}
