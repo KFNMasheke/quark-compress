@@ -1,5 +1,8 @@
 """Regression checks for experiment accounting and routing counterexamples."""
 import random
+import hashlib
+import json
+import tempfile
 import unittest
 import importlib.util
 from pathlib import Path
@@ -17,6 +20,21 @@ from quarkcompress.core import encode
 
 
 class AdaptiveTests(unittest.TestCase):
+    def test_external_corpus_integrity_and_path_boundaries(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            data = b'Independent example corpus'
+            (root / 'sample.txt').write_bytes(data)
+            manifest = root / 'manifest.json'
+            entry = dict(name='sample.txt', bytes=len(data), sha256=hashlib.sha256(data).hexdigest())
+            manifest.write_text(json.dumps(dict(split='held-out', files=[entry])))
+            self.assertEqual(list(lab.external_inputs(root, manifest))[0][2], data)
+            for entries in ([entry, entry], [{**entry, 'name': '../escape'}],
+                            [{**entry, 'bytes': True}], [{**entry, 'sha256': '0'*64}]):
+                manifest.write_text(json.dumps(dict(split='held-out', files=entries)))
+                with self.assertRaises(ValueError):
+                    list(lab.external_inputs(root, manifest))
+
     def test_mixed_regions_restore_and_frame_accounting(self):
         data = b"mapping\n" * 10000 + random.Random(71).randbytes(65536)
         for policy in POLICIES:
