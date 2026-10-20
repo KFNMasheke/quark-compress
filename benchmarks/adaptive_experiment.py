@@ -8,7 +8,7 @@ import argparse
 from collections import Counter
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import platform
 import random
 import statistics
@@ -107,7 +107,45 @@ def restore_local(frame):
     return bytes(output)
 
 
-def inputs():
+def external_inputs(corpus_root, manifest_path):
+    """Integrity-checked operator-supplied corpus; independence is not inferred."""
+    root, manifest_file = Path(corpus_root).resolve(), Path(manifest_path)
+    if manifest_file.stat().st_size > 1024 * 1024:
+        raise ValueError('Corpus manifest exceeds 1 MiB')
+    manifest = json.loads(manifest_file.read_text())
+    if not isinstance(manifest, dict) or manifest.get('split') != 'held-out':
+        raise ValueError('External manifest must declare split: held-out')
+    files = manifest.get('files')
+    if not isinstance(files, list) or not 1 <= len(files) <= 10000:
+        raise ValueError('External manifest needs 1-10000 files')
+    seen = set()
+    for item in files:
+        if not isinstance(item, dict) or not isinstance(item.get('name'), str):
+            raise ValueError('Invalid corpus entry')
+        name = item['name']
+        relative = PurePosixPath(name)
+        if (not name or relative.is_absolute() or '..' in relative.parts
+                or '\\' in name or str(relative) != name or name in seen):
+            raise ValueError('Unsafe or duplicate corpus path')
+        seen.add(name)
+        path = (root / name).resolve()
+        if not path.is_relative_to(root) or not path.is_file():
+            raise ValueError('Corpus path must remain inside root')
+        size = item.get('bytes')
+        if type(size) is not int or not 0 <= size <= MAX_INPUT or path.stat().st_size != size:
+            raise ValueError('Corpus size mismatch or input limit')
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != item.get('sha256'):
+            raise ValueError('Corpus integrity mismatch')
+        yield name, 'external held-out (operator-declared)', data
+
+
+def inputs(corpus_root=None, manifest_path=None):
+    if corpus_root is not None or manifest_path is not None:
+        if corpus_root is None or manifest_path is None:
+            raise ValueError('Supply both corpus root and manifest')
+        yield from external_inputs(corpus_root, manifest_path)
+        return
     manifest = json.loads((ROOT / "benchmarks/canterbury_manifest.json").read_text())
     for item in manifest["files"]:
         data = (ROOT / "corpora/canterbury" / item["name"]).read_bytes()
@@ -124,9 +162,9 @@ def inputs():
     yield "sample-trap", "synthetic diagnostic", noise[:1024] + bytes(260096) + noise[-1024:]
 
 
-def worker(name, config, repeats):
+def worker(name, config, repeats, corpus_root=None, manifest_path=None):
     from benchmarks.run_suite import peak_rss
-    data = next(data for key, _, data in inputs() if key == name)
+    data = next(data for key, _, data in inputs(corpus_root, manifest_path) if key == name)
     encodes, decodes, expected = [], [], None
     for iteration in range(repeats + 1):
         start = time.perf_counter()
@@ -160,7 +198,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repeats", type=int, default=3)
     parser.add_argument("--output", type=Path, default=ROOT / "results/adaptive.json")
+    parser.add_argument('--corpus-root', type=Path)
+    parser.add_argument('--manifest', type=Path)
     args = parser.parse_args()
+    if bool(args.corpus_root) != bool(args.manifest):
+        parser.error('Supply both --corpus-root and --manifest')
+    if args.manifest and args.output.resolve() == (ROOT / 'results/adaptive.json').resolve():
+        parser.error('Use a separate --output for external evaluation')
     if args.repeats < 1 or qcore.BACKEND != "native":
         parser.error("Positive repetitions and native QCore are required")
     configs = [f"whole:{c}" for c in CODECS[1:]]
@@ -172,14 +216,21 @@ def main():
               "qcore_backend": qcore.BACKEND, "repetitions": args.repeats, "warmups": 1,
               "sources": {s: hashlib.sha256((ROOT/s).read_bytes()).hexdigest() for s in sources},
               "portfolio": CODECS, "sample_bytes": 4096,
-              "measurement": "Sequential isolated child per input/config. Full selection, discarded trials, SHA-256 and actual lab framing inside encode timer. Decode includes integrity check. Byte comparison outside timers. I/O and startup excluded. Whole baselines retain native stream framing. No held-out corpus or memory cap; RSS includes process/input/warmup. Oracle optimal only for this portfolio, partition and frame.",
+              "measurement": "Sequential isolated child per input/config. Full selection, discarded trials, SHA-256 and actual lab framing inside encode timer. Decode includes integrity check. Byte comparison outside timers. I/O and startup excluded. Whole baselines retain native stream framing. No memory cap; RSS includes process/input/warmup. The default corpus is development data; external split is operator-declared. Oracle optimal only for this portfolio, partition and frame.",
               "files": []}
-    for name, group, data in inputs():
+    if args.manifest:
+        report['external_manifest_sha256'] = hashlib.sha256(args.manifest.read_bytes()).hexdigest()
+        report['split_note'] = 'Held-out is operator-declared. This harness cannot establish that no tuning used these files.'
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    for name, group, data in inputs(args.corpus_root, args.manifest):
         row = {"name": name, "group": group, "input_bytes": len(data),
                "sha256": hashlib.sha256(data).hexdigest(), "trials": []}
         for config in configs:
-            result = subprocess.run([sys.executable, str(Path(__file__).resolve()),
-                                     "--worker", name, config, str(args.repeats)],
+            command = [sys.executable, str(Path(__file__).resolve()),
+                       '--worker', name, config, str(args.repeats)]
+            if args.manifest:
+                command.extend([str(args.corpus_root.resolve()), str(args.manifest.resolve())])
+            result = subprocess.run(command,
                                     capture_output=True, text=True, check=True, timeout=180)
             row["trials"].append(json.loads(result.stdout))
         report["files"].append(row)
@@ -191,6 +242,6 @@ def main():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--worker":
-        print(json.dumps(worker(sys.argv[2], sys.argv[3], int(sys.argv[4]))))
+        print(json.dumps(worker(sys.argv[2], sys.argv[3], int(sys.argv[4]), *sys.argv[5:])))
     else:
         main()
