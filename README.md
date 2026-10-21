@@ -102,7 +102,7 @@ This lab experiment leaves QCore and its CLI formats unchanged.
 
 32 MiB input limit per file; whole-file buffers; codec working memory is additional
 and may substantially exceed input size. No enforced RAM budget or peak-RSS
-measurement. No directory archives, permissions restoration, resume, GUI,
+measurement. No directory archives, permissions restoration, resume, signed desktop installer,
 embedded-stream precompression, encryption, content-defined deduplication,
 or mobile app yet. QCore's fixed-block references operate within a single file.
 Files must be stable while being read. Interrupted output writes can leave an
