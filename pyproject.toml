@@ -20,3 +20,9 @@ Roadmap = "https://github.com/KFNMasheke/quark-compress/blob/main/docs/ROADMAP.m
 
 [tool.setuptools.packages.find]
 include = ["quarkcompress*"]
+
+[tool.setuptools.package-data]
+quarkcompress = ["web/*.html", "web/*.css", "web/*.js"]
+
+[project.scripts]
+quark-gui = "quarkcompress.gui:main"

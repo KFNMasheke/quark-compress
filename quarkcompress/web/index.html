@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Quark · File workspace</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="/">q<span>quark</span></a>
+      <p class="eyebrow">FILE WORKSPACE</p>
+      <nav aria-label="Workspace">
+        <button class="nav active" data-mode="compress">
+          01 <span>Compress</span></button
+        ><button class="nav" data-mode="compare">
+          02 <span>Compare engines</span></button
+        ><button class="nav" data-mode="restore">
+          03 <span>Restore a file</span>
+        </button>
+      </nav>
+      <div class="aside-bottom">
+        <span class="dot"></span> Local on your computer
+        <p>Files stay in this session.<br />No cloud uploads.</p>
+      </div>
+    </aside>
+    <main>
+      <header>
+        <span class="eyebrow">QUARK / COMPRESSION LAB</span
+        ><span id="connection" class="pill">Connecting…</span>
+      </header>
+      <div class="intro">
+        <p class="eyebrow lime">SMALLER FILES. MEASURED RESULTS.</p>
+        <h1 id="title">Make room for more.</h1>
+        <p id="subtitle">
+          Compress a file, verify every byte, and take the result with you.
+        </p>
+      </div>
+      <div class="workspace">
+        <section class="panel">
+          <div class="section-heading">
+            <h2 id="operation">Compress a file</h2>
+            <span class="muted">01 / INPUT</span>
+          </div>
+          <label id="drop" class="drop" for="file"
+            ><span class="upload-icon">↥</span
+            ><strong id="file-label">Drop your file here</strong
+            ><span>or click to browse · up to 32 MiB</span
+            ><input id="file" type="file"
+          /></label>
+          <div id="engine-field" class="field">
+            <label for="codec">Compression engine</label
+            ><select id="codec">
+              <option value="zstd-3">
+                Zstandard · fast everyday compression
+              </option>
+              <option value="zstd-19">Zstandard · maximum compression</option>
+              <option value="gzip-9">Gzip · broad compatibility</option>
+              <option value="xz-6">XZ · balanced compression</option>
+              <option value="xz-9">XZ · maximum compression</option>
+              <option value="qcore-2">QCore 2 · experimental</option>
+              <option value="qcore-1">QCore 1 · legacy experimental</option>
+              <option value="store">Raw · no compression</option>
+            </select>
+          </div>
+          <p id="mode-note" class="note">
+            Every compression is restored and compared with your original before
+            download.
+          </p>
+          <button id="run" class="primary" disabled>
+            Compress & verify <span>↗</span>
+          </button>
+          <p id="status" role="status" aria-live="polite">
+            Choose a file to begin.
+          </p>
+        </section>
+        <section class="panel result">
+          <div class="section-heading">
+            <h2>Your result</h2>
+            <span class="muted">02 / OUTPUT</span>
+          </div>
+          <div id="empty" class="empty">
+            <div class="orbit">q</div>
+            <h3>Proof in every byte.</h3>
+            <p>
+              Your measured result, integrity check, and download will appear
+              here.
+            </p>
+          </div>
+          <div id="result" hidden>
+            <span id="verified" class="pill"></span>
+            <h3 id="result-name"></h3>
+            <div class="stats">
+              <div><span>Original</span><strong id="original"></strong></div>
+              <div><span>Result</span><strong id="packed"></strong></div>
+              <div>
+                <span id="saving-label">Space saved</span
+                ><strong id="saving" class="lime"></strong>
+              </div>
+            </div>
+            <p id="result-message"></p>
+            <p id="timing" class="muted"></p>
+            <label class="eyebrow" for="hash"
+              >SHA-256 OF ORIGINAL / RESTORED FILE</label
+            ><output id="hash"></output>
+            <div class="table-wrap">
+              <table id="trials">
+                <caption>
+                  Verified engine comparison
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Engine</th>
+                    <th>Size</th>
+                    <th>Encode</th>
+                    <th>Decode</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <a id="download" class="primary" download>Download result ↧</a>
+          </div>
+        </section>
+      </div>
+      <footer>
+        <button id="shutdown" class="secondary">Close workspace</button
+        ><span>Precision over promises.</span
+        ><span>32 MiB whole-file workspace · QCore is experimental</span>
+      </footer>
+    </main>
+  </body>
+</html>
