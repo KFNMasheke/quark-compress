@@ -136,3 +136,32 @@ and [SECURITY.md](SECURITY.md) for the current safety boundaries.
 
 Original Quark Compress code uses the [MIT License](LICENSE).
 Dependencies retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md).
+
+## Graphical workspace
+
+Open **Open Quark.vbs** on Windows or **Open Quark.command** on macOS/Linux
+(the latter may need executable permission). Requires Python 3.11+ with Tkinter;
+on Windows enable Python's **Add to PATH** option. The first launch shows a setup
+window and installs the pinned dependency into `.venv`; internet is needed once.
+Then the browser opens a private workspace at `http://127.0.0.1:3881`.
+No terminal commands are needed for everyday use. This is a local browser app,
+not a bundled standalone executable.
+
+- **Compress:** choose a file and engine; download only after byte-for-byte verification.
+- **Compare:** test raw storage, Zstandard 3, Gzip 9, and QCore 2; download the
+  smallest verified result. This is a four-engine comparison, not the CLI's full oracle.
+- **Restore:** open a single QCore, gzip, Zstandard, or XZ stream. Restored output
+  is bounded to 32 MiB; concatenated/trailing streams are rejected. Compare the
+  displayed SHA-256 to your original hash for independent identity confirmation.
+- **Close workspace:** stops the service and clears in-memory results. Closing
+  only the browser tab leaves the service running. Reopen the launcher to reconnect.
+
+Original files are limited to 32 MiB. Only two recent outputs are retained in
+memory, and uploaded files are never written by the service. Downloads use your
+browser's normal download location. Compression can expand a file; the measured
+size is shown before download. QCore is experimental and can be slow without its
+optional native accelerator. There is no archive/folder support yet.
+
+Developer launch: `python -m quarkcompress.gui` (`--no-browser` for tests).
+The server accepts only the exact loopback Host and checks Origin plus a random
+session token before mutations. It must not be reverse-proxied or publicly hosted.
